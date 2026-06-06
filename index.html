@@ -1,0 +1,1522 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TMT Ev Aletleri – Elektrik Anahtarları ve Aksesuarları</title>
+  <meta name="description" content="TMT Ev Aletleri – Rocker, Mikro, Sürgülü, Butonlu ve Döner anahtarlar, gösterge lambaları, prizler ve devre kesiciler." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary:        #172F63;
+      --primary-hover:  #1e3d80;
+      --secondary:      #4a5f81;
+      --bg:             #f8f9fa;
+      --surface:        #ffffff;
+      --border:         #d1d9e6;
+      --border-light:   #e7e8e9;
+      --text:           #191c1d;
+      --text-muted:     #44464f;
+      --shadow:         0 4px 12px rgba(23,47,99,.08);
+      --shadow-lg:      0 8px 32px rgba(23,47,99,.13);
+      --radius:         0.25rem;
+      --radius-lg:      0.5rem;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 24px;
+      background: var(--bg);
+      color: var(--text);
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Typography helpers ── */
+    .display-lg { font-family: 'Manrope', sans-serif; font-size: clamp(32px,5vw,48px); font-weight: 700; line-height: 1.15; letter-spacing: -.02em; }
+    .headline-lg { font-family: 'Manrope', sans-serif; font-size: clamp(24px,3.5vw,32px); font-weight: 600; line-height: 1.25; letter-spacing: -.01em; }
+    .headline-md { font-family: 'Manrope', sans-serif; font-size: 22px; font-weight: 600; line-height: 1.35; }
+    .label { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: .05em; text-transform: uppercase; }
+
+    /* ── Layout ── */
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+    @media(max-width:768px){ .container { padding: 0 16px; } }
+
+    /* ── NAV ── */
+    #navbar {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--primary);
+      box-shadow: 0 2px 8px rgba(0,0,0,.25);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px;
+    }
+    .nav-brand {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .nav-brand img { height: 42px; width: auto; }
+    .nav-brand-text {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 700; font-size: 18px;
+      color: #ffffff; letter-spacing: -.01em;
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 4px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 14px; font-weight: 500; color: rgba(255,255,255,.82);
+      padding: 6px 14px; border-radius: var(--radius);
+      transition: color .15s, background .15s;
+    }
+    .nav-links a:hover { color: #fff; background: rgba(255,255,255,.1); }
+    .nav-right { display: flex; align-items: center; gap: 8px; }
+    .nav-phone {
+      display: flex; align-items: center; gap: 6px;
+      font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500;
+      color: rgba(255,255,255,.85); letter-spacing: .03em;
+      padding: 5px 12px; border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.2); transition: all .15s;
+      white-space: nowrap;
+    }
+    .nav-phone:hover { color: #fff; border-color: rgba(255,255,255,.5); background: rgba(255,255,255,.08); }
+    @media(max-width:640px){ .nav-phone span { display: none; } }
+    .lang-btn {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px; font-weight: 500; letter-spacing: .06em;
+      padding: 5px 12px; border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.35);
+      background: transparent; color: rgba(255,255,255,.7);
+      cursor: pointer; transition: all .15s;
+    }
+    .lang-btn.active { background: rgba(255,255,255,.15); color: #fff; border-color: rgba(255,255,255,.7); }
+    .lang-btn:hover { color: #fff; border-color: rgba(255,255,255,.6); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { width: 24px; height: 2px; background: #fff; border-radius: 2px; transition: .25s; }
+    @media(max-width:900px){
+      .nav-links { display: none; flex-direction: column; position: absolute; top: 68px; left: 0; right: 0; background: var(--primary); padding: 12px 0 20px; gap: 2px; }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 10px 24px; border-radius: 0; }
+      .hamburger { display: flex; }
+    }
+
+    /* ── HERO ── */
+    #hero {
+      background: linear-gradient(135deg, var(--primary) 0%, #1e3d80 60%, #2a4d96 100%);
+      padding: 96px 0 80px;
+      position: relative; overflow: hidden;
+    }
+    #hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; position: relative; }
+    .hero-badge {
+      display: inline-block; font-family: 'JetBrains Mono', monospace;
+      font-size: 11px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase;
+      color: #b1c5ff; border: 1px solid rgba(177,197,255,.3);
+      padding: 4px 14px; border-radius: 9999px; margin-bottom: 20px;
+    }
+    .hero-title { color: #fff; margin-bottom: 20px; }
+    .hero-sub { color: rgba(255,255,255,.72); font-size: 18px; line-height: 28px; margin-bottom: 36px; max-width: 480px; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-primary {
+      font-family: 'Manrope', sans-serif; font-weight: 600; font-size: 15px;
+      padding: 12px 28px; border-radius: var(--radius);
+      background: #fff; color: var(--primary); border: none; cursor: pointer;
+      transition: background .15s, box-shadow .15s;
+    }
+    .btn-primary:hover { background: #e8edff; box-shadow: 0 4px 16px rgba(0,0,0,.15); }
+    .btn-secondary {
+      font-family: 'Manrope', sans-serif; font-weight: 600; font-size: 15px;
+      padding: 12px 28px; border-radius: var(--radius);
+      background: transparent; color: #fff; border: 1px solid rgba(255,255,255,.45); cursor: pointer;
+      transition: background .15s, border-color .15s;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.8); }
+    .hero-visual {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+    }
+    .hero-img-card {
+      border-radius: var(--radius-lg); overflow: hidden;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05); aspect-ratio: 4/3;
+    }
+    .hero-img-card img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-img-card:first-child { grid-column: 1 / -1; aspect-ratio: 16/7; }
+    @media(max-width:900px){
+      .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .hero-visual { display: none; }
+      #hero { padding: 64px 0 56px; }
+    }
+
+    /* ── STATS ── */
+    #stats { background: var(--surface); border-bottom: 1px solid var(--border-light); }
+    .stats-inner { display: grid; grid-template-columns: repeat(4,1fr); padding: 36px 0; gap: 0; }
+    .stat-item { padding: 0 24px; border-right: 1px solid var(--border-light); text-align: center; }
+    .stat-item:last-child { border-right: none; }
+    .stat-num { font-family: 'Manrope', sans-serif; font-size: 36px; font-weight: 700; color: var(--primary); line-height: 1; margin-bottom: 6px; }
+    .stat-label { font-size: 13px; color: var(--text-muted); }
+    @media(max-width:640px){
+      .stats-inner { grid-template-columns: 1fr 1fr; }
+      .stat-item:nth-child(2) { border-right: none; }
+      .stat-item:nth-child(3) { border-right: 1px solid var(--border-light); border-top: 1px solid var(--border-light); }
+      .stat-item:nth-child(4) { border-top: 1px solid var(--border-light); border-right: none; }
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 80px 0; }
+    .section-label { color: var(--primary); margin-bottom: 12px; }
+    .section-title { margin-bottom: 16px; color: var(--text); }
+    .section-sub { font-size: 17px; color: var(--text-muted); line-height: 1.7; max-width: 600px; }
+    .section-header { margin-bottom: 48px; }
+
+    /* ── ABOUT ── */
+    #about { background: var(--surface); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .about-text p { font-size: 16px; line-height: 1.75; color: var(--text-muted); margin-bottom: 16px; }
+    .about-text p:last-child { margin-bottom: 0; }
+    .about-features { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
+    .feature-chip {
+      display: flex; align-items: center; gap: 10px;
+      padding: 12px 16px; border-radius: var(--radius-lg);
+      background: var(--bg); border: 1px solid var(--border-light);
+      font-size: 13px; font-weight: 500; color: var(--text);
+    }
+    .feature-chip .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--primary); flex-shrink: 0; }
+    .about-img { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); border: 1px solid var(--border-light); }
+    .about-img img { width: 100%; height: 420px; object-fit: contain; background: var(--bg); padding: 32px; }
+    @media(max-width:900px){ .about-grid { grid-template-columns: 1fr; gap: 40px; } }
+    @media(max-width:640px){ .about-features { grid-template-columns: 1fr; } }
+
+    /* ── PRODUCTS ── */
+    #products { background: var(--bg); }
+    .filter-bar { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+    .filter-btn {
+      font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500;
+      letter-spacing: .03em; padding: 9px 20px; border-radius: 9999px;
+      border: 1px solid var(--border); background: var(--surface); color: var(--text-muted);
+      cursor: pointer; transition: all .15s; white-space: nowrap;
+    }
+    .filter-btn:hover { border-color: var(--primary); color: var(--primary); }
+    .filter-btn.active {
+      background: var(--primary); color: #fff; border-color: var(--primary);
+    }
+    .product-card.hidden { display: none; }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    @media(max-width:900px){ .products-grid { grid-template-columns: repeat(2,1fr); } }
+    @media(max-width:600px){ .products-grid { grid-template-columns: 1fr; } }
+    .product-card {
+      background: var(--surface); border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg); overflow: hidden;
+      transition: box-shadow .2s, transform .2s;
+      display: flex; flex-direction: column;
+    }
+    .product-info { flex: 1; }
+    .product-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+    .product-img {
+      height: 500px; overflow: hidden; background: var(--bg);
+      display: flex; align-items: center; justify-content: center; padding: 0;
+    }
+    .product-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .3s; }
+    .product-card:hover .product-img img { transform: scale(1.05); }
+    .product-info { padding: 20px; border-top: 1px solid var(--border-light); }
+    .product-tag {
+      display: inline-block; font-family: 'JetBrains Mono', monospace;
+      font-size: 11px; font-weight: 500; letter-spacing: .05em;
+      color: var(--primary); background: rgba(23,47,99,.06);
+      padding: 3px 10px; border-radius: 9999px; margin-bottom: 8px;
+    }
+    .product-name { font-family: 'Manrope', sans-serif; font-weight: 600; font-size: 16px; color: var(--text); margin-bottom: 6px; }
+    .product-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+    .product-thumbs { display: flex; gap: 6px; padding: 8px; background: var(--bg); flex-wrap: wrap; border-top: 1px solid var(--border-light); }
+    .product-thumb { width: 100px; height: 80px; object-fit: cover; border-radius: var(--radius); cursor: pointer; border: 2px solid transparent; transition: border-color .15s, opacity .15s; opacity: .65; }
+    .product-thumb:hover { opacity: 1; }
+    .product-thumb.active { border-color: var(--primary); opacity: 1; }
+
+    /* ── CERTIFICATIONS ── */
+    #certifications { background: var(--surface); }
+    .cert-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; }
+    .cert-card {
+      background: var(--bg); border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg); padding: 36px 24px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;
+      transition: box-shadow .2s;
+    }
+    .cert-card:hover { box-shadow: var(--shadow-lg); }
+    .cert-card img { height: 160px; width: auto; object-fit: contain; }
+    .cert-card { cursor: pointer; }
+    /* ── Lightbox ── */
+    #lightbox {
+      display: none; position: fixed; inset: 0; z-index: 999;
+      background: rgba(0,0,0,.75); align-items: center; justify-content: center;
+      backdrop-filter: blur(4px);
+    }
+    #lightbox.open { display: flex; }
+    #lightbox img {
+      max-width: 90vw; max-height: 85vh; object-fit: contain;
+      border-radius: var(--radius-lg); box-shadow: 0 24px 64px rgba(0,0,0,.5);
+    }
+    #lightbox-close {
+      position: fixed; top: 20px; right: 24px;
+      width: 40px; height: 40px; border-radius: 50%;
+      background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.3);
+      color: #fff; font-size: 20px; line-height: 1; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .15s;
+    }
+    #lightbox-close:hover { background: rgba(255,255,255,.3); }
+    .cert-name { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: .04em; color: var(--text-muted); text-align: center; }
+    @media(max-width:900px){ .cert-grid { grid-template-columns: repeat(3,1fr); } }
+    @media(max-width:640px){ .cert-grid { grid-template-columns: repeat(2,1fr); } }
+
+    /* ── CATALOGS ── */
+    #catalogs { background: var(--bg); }
+    .catalog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+    .catalog-card {
+      background: var(--surface); border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg); padding: 24px 20px;
+      display: flex; flex-direction: column; align-items: flex-start; gap: 12px;
+      transition: box-shadow .2s, transform .2s;
+    }
+    .catalog-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+    .catalog-icon {
+      width: 44px; height: 44px; border-radius: var(--radius-lg);
+      background: rgba(23,47,99,.08); display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .catalog-icon svg { width: 22px; height: 22px; color: var(--primary); }
+    .catalog-title { font-family: 'Manrope', sans-serif; font-weight: 600; font-size: 14px; color: var(--text); line-height: 1.4; }
+    .catalog-size { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-muted); letter-spacing: .03em; }
+    .catalog-dl {
+      margin-top: auto; font-family: 'Manrope', sans-serif; font-size: 13px; font-weight: 600;
+      color: var(--primary); display: flex; align-items: center; gap: 6px;
+    }
+    .catalog-dl svg { width: 14px; height: 14px; }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--surface); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .contact-info-block { display: flex; flex-direction: column; gap: 24px; }
+    .contact-item { display: flex; gap: 16px; align-items: flex-start; }
+    .contact-icon {
+      width: 44px; height: 44px; border-radius: var(--radius-lg);
+      background: rgba(23,47,99,.07); display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .contact-icon svg { width: 20px; height: 20px; color: var(--primary); }
+    .contact-item-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .06em; color: var(--text-muted); margin-bottom: 4px; }
+    .contact-item-val { font-size: 15px; font-weight: 500; color: var(--text); }
+    .contact-form { background: var(--bg); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 32px; }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: .06em; color: var(--text-muted); margin-bottom: 6px; }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%; padding: 10px 14px; font-size: 14px; font-family: 'Inter', sans-serif;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); color: var(--text); transition: border .15s, box-shadow .15s; outline: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--primary); border-width: 2px;
+      box-shadow: 0 0 0 3px rgba(23,47,99,.08);
+    }
+    .form-group textarea { resize: vertical; min-height: 110px; }
+    .btn-submit {
+      width: 100%; padding: 12px; border-radius: var(--radius);
+      background: var(--primary); color: #fff; border: none;
+      font-family: 'Manrope', sans-serif; font-size: 15px; font-weight: 600;
+      cursor: pointer; transition: background .15s;
+    }
+    .btn-submit:hover { background: var(--primary-hover); }
+    @media(max-width:900px){ .contact-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0d1f45; color: rgba(255,255,255,.65);
+      padding: 48px 0 28px;
+    }
+    .footer-inner { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 48px; margin-bottom: 40px; }
+    .footer-brand { display: flex; flex-direction: column; gap: 12px; }
+    .footer-brand img { height: 36px; width: auto; }
+    .footer-brand-name { font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 16px; color: #fff; }
+    .footer-brand p { font-size: 13px; line-height: 1.7; max-width: 280px; }
+    .footer-col h4 { font-family: 'Manrope', sans-serif; font-weight: 600; font-size: 14px; color: #fff; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .footer-col ul li a { font-size: 13px; color: rgba(255,255,255,.6); transition: color .15s; }
+    .footer-col ul li a:hover { color: #fff; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,.1); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-bottom span { font-size: 12px; font-family: 'JetBrains Mono', monospace; letter-spacing: .03em; }
+    @media(max-width:768px){ .footer-inner { grid-template-columns: 1fr; gap: 32px; } }
+
+    /* ── Utility ── */
+    .text-center { text-align: center; }
+    .mx-auto { margin-left: auto; margin-right: auto; }
+    [data-lang] { transition: opacity .2s; }
+
+    /* ══════════════════════════════
+       RESPONSIVE — Tablet ≤ 900px
+    ══════════════════════════════ */
+    @media(max-width:900px){
+      section { padding: 56px 0; }
+      .section-header { margin-bottom: 32px; }
+      .stat-num { font-size: 28px; }
+      .stat-item { padding: 0 12px; }
+      .about-img img { height: 300px; }
+      .contact-form { padding: 24px; }
+      .cert-card { padding: 24px 16px; }
+      .cert-card img { height: 120px; }
+    }
+
+    /* ══════════════════════════════
+       RESPONSIVE — Mobile ≤ 640px
+    ══════════════════════════════ */
+    @media(max-width:640px){
+      /* Navbar */
+      .nav-brand-text { font-size: 15px; }
+      .nav-brand img  { height: 32px; }
+      .nav-phone { padding: 5px 8px; font-size: 11px; }
+      .lang-btn  { padding: 5px 8px; font-size: 11px; }
+      .nav-right { gap: 5px; }
+
+      /* Hero */
+      #hero { padding: 48px 0 40px; }
+      .hero-sub { font-size: 15px; line-height: 1.6; }
+      .hero-badge { font-size: 10px; }
+      .btn-primary, .btn-secondary { font-size: 14px; padding: 10px 20px; }
+
+      /* Sections */
+      section { padding: 40px 0; }
+      .section-sub { font-size: 15px; }
+
+      /* Stats */
+      .stats-inner { padding: 24px 0; }
+      .stat-num { font-size: 26px; }
+      .stat-label { font-size: 12px; }
+
+      /* About */
+      .about-features { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .feature-chip { font-size: 12px; padding: 10px 12px; }
+      .about-img img { height: 220px; padding: 16px; }
+
+      /* Filter */
+      .filter-bar {
+        flex-wrap: nowrap; overflow-x: auto; gap: 8px;
+        padding-bottom: 8px; margin-bottom: 24px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .filter-bar::-webkit-scrollbar { display: none; }
+      .filter-btn { font-size: 11px; padding: 7px 14px; flex-shrink: 0; }
+
+      /* Products */
+      .product-img { height: 280px; }
+      .product-thumb { width: 68px; height: 54px; }
+      .product-name { font-size: 15px; }
+      .product-info { padding: 14px; }
+
+      /* Certifications */
+      .cert-grid { grid-template-columns: repeat(2,1fr); gap: 12px; }
+      .cert-card { padding: 20px 12px; }
+      .cert-card img { height: 90px; }
+
+      /* Catalogs */
+      .catalog-grid { grid-template-columns: 1fr; }
+
+      /* Contact */
+      .contact-form { padding: 20px 16px; }
+      .contact-item-val { font-size: 14px; }
+
+      /* Footer */
+      .footer-bottom { flex-direction: column; text-align: center; gap: 8px; }
+      footer { padding: 36px 0 20px; }
+    }
+
+    /* ══════════════════════════════
+       RESPONSIVE — Small ≤ 400px
+    ══════════════════════════════ */
+    @media(max-width:400px){
+      .nav-brand-text { display: none; }
+      .about-features { grid-template-columns: 1fr; }
+      .hero-actions { flex-direction: column; }
+      .btn-primary, .btn-secondary { width: 100%; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAVBAR ── -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#" class="nav-brand">
+        <img src="TMT.png" alt="TMT Logo" onerror="this.style.display='none'" />
+        <span class="nav-brand-text">TMT Ev Aletleri</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about"       data-tr="Hakkımızda"   data-en="About">Hakkımızda</a></li>
+        <li><a href="#products"    data-tr="Ürünler"       data-en="Products">Ürünler</a></li>
+        <li><a href="#certifications" data-tr="Sertifikalar" data-en="Certifications">Sertifikalar</a></li>
+        <li><a href="#catalogs"    data-tr="Kataloglar"    data-en="Catalogs">Kataloglar</a></li>
+        <li><a href="#contact"     data-tr="İletişim"      data-en="Contact">İletişim</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="tel:+905373822832" class="nav-phone">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" width="15" height="15"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          +90 537 382 28 32
+        </a>
+        <button class="lang-btn active" id="btnTR" onclick="setLang('tr')">TR</button>
+        <button class="lang-btn"        id="btnEN" onclick="setLang('en')">EN</button>
+        <button class="hamburger" id="hamburger" aria-label="Menü">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <span class="hero-badge" data-tr="Elektrik Bileşenleri Tedarikçisi" data-en="Electrical Components Distributor">Elektrik Bileşenleri Tedarikçisi</span>
+        <h1 class="display-lg hero-title">
+          <span data-tr="Güvenilir Elektrik<br>Anahtarları &amp; Aksesuarları" data-en="Reliable Electrical<br>Switches &amp; Accessories">Güvenilir Elektrik<br>Anahtarları &amp; Aksesuarları</span>
+        </h1>
+        <p class="hero-sub" data-tr="Rocker, mikro, sürgülü, butonlu ve döner anahtarlardan priz ve devre kesicilere kadar geniş ürün yelpazemizle ev aletleri sektörüne profesyonel çözümler sunuyoruz." data-en="From rocker, micro, slide and push-button switches to sockets and circuit breakers — we deliver professional solutions to the home appliance industry.">
+          Rocker, mikro, sürgülü, butonlu ve döner anahtarlardan priz ve devre kesicilere kadar geniş ürün yelpazemizle ev aletleri sektörüne profesyonel çözümler sunuyoruz.
+        </p>
+        <div class="hero-actions">
+          <a href="#products" class="btn-primary" data-tr="Ürünleri İncele" data-en="Explore Products">Ürünleri İncele</a>
+          <a href="#contact"  class="btn-secondary" data-tr="Teklif Al" data-en="Get a Quote">Teklif Al</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-img-card">
+          <img src="switch picture/rocker switch/KCD3.jpg" alt="Rocker Switch" />
+        </div>
+        <div class="hero-img-card">
+          <img src="switch picture/Micro switch/FM1-1115.jpg" alt="Micro Switch" />
+        </div>
+        <div class="hero-img-card">
+          <img src="switch picture/slide switch/DSE.jpg" alt="Slide Switch" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── STATS ── -->
+<div id="stats">
+  <div class="container">
+    <div class="stats-inner">
+      <div class="stat-item">
+        <div class="stat-num">11+</div>
+        <div class="stat-label" data-tr="Ürün Kategorisi" data-en="Product Categories">Ürün Kategorisi</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">5</div>
+        <div class="stat-label" data-tr="Uluslararası Sertifika" data-en="International Certifications">Uluslararası Sertifika</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">20+</div>
+        <div class="stat-label" data-tr="Katalog Serisi" data-en="Catalog Series">Katalog Serisi</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">7/24</div>
+        <div class="stat-label" data-tr="Teknik Destek" data-en="Technical Support">Teknik Destek</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <p class="label section-label" data-tr="HAKKIMIZDA" data-en="ABOUT US">HAKKIMIZDA</p>
+        <h2 class="headline-lg section-title" data-tr="Ev Aletleri Sektörüne Güvenilir Tedarik" data-en="Reliable Supply to the Home Appliance Industry">Ev Aletleri Sektörüne Güvenilir Tedarik</h2>
+        <p data-tr="TMT Ev Aletleri olarak İstanbul Esenyurt'tan faaliyet gösteriyor; ev aletleri ve endüstriyel ekipmanlar için yüksek kaliteli elektrik bileşenleri tedarik ediyoruz. Dünya standartlarında üretilen SIBER marka ürünlerini Türkiye pazarına sunuyoruz." data-en="Operating from Esenyurt, Istanbul, TMT Ev Aletleri supplies high-quality electrical components for home appliances and industrial equipment. We bring SIBER brand products — manufactured to world standards — to the Turkish market.">
+          TMT Ev Aletleri olarak İstanbul Esenyurt'tan faaliyet gösteriyor; ev aletleri ve endüstriyel ekipmanlar için yüksek kaliteli elektrik bileşenleri tedarik ediyoruz. Dünya standartlarında üretilen SIBER marka ürünlerini Türkiye pazarına sunuyoruz.
+        </p>
+        <p data-tr="Rocker switchten mikro switche, döner anahtardan devre kesicilere kadar 11'den fazla ürün kategorisinde IEC, CQC, Intertek ve BTCC sertifikalı ürünler sunuyoruz. Her parça endüstriyel kalite standartlarına uygun olarak üretilmektedir." data-en="Across more than 11 product categories — from rocker switches to microswitches, rotary switches to circuit breakers — we supply IEC, CQC, Intertek and BTCC certified components. Every part is manufactured in compliance with industrial quality standards.">
+          Rocker switchten mikro switche, döner anahtardan devre kesicilere kadar 11'den fazla ürün kategorisinde IEC, CQC, Intertek ve BTCC sertifikalı ürünler sunuyoruz. Her parça endüstriyel kalite standartlarına uygun olarak üretilmektedir.
+        </p>
+        <div class="about-features">
+          <div class="feature-chip"><span class="dot"></span><span data-tr="IEC Sertifikalı" data-en="IEC Certified">IEC Sertifikalı</span></div>
+          <div class="feature-chip"><span class="dot"></span><span data-tr="CQC Onaylı" data-en="CQC Approved">CQC Onaylı</span></div>
+          <div class="feature-chip"><span class="dot"></span><span data-tr="Intertek Test" data-en="Intertek Tested">Intertek Test</span></div>
+          <div class="feature-chip"><span class="dot"></span><span data-tr="Hızlı Teslimat" data-en="Fast Delivery">Hızlı Teslimat</span></div>
+          <div class="feature-chip"><span class="dot"></span><span data-tr="Geniş Stok" data-en="Wide Stock Range">Geniş Stok</span></div>
+          <div class="feature-chip"><span class="dot"></span><span data-tr="Teknik Destek" data-en="Technical Support">Teknik Destek</span></div>
+        </div>
+      </div>
+      <div class="about-img">
+        <img src="TMT.png" alt="TMT Ev Aletleri" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PRODUCTS ── -->
+<section id="products">
+  <div class="container">
+    <div class="section-header">
+      <p class="label section-label" data-tr="ÜRÜN KATEGORİLERİ" data-en="PRODUCT CATEGORIES">ÜRÜN KATEGORİLERİ</p>
+      <h2 class="headline-lg section-title" data-tr="Geniş Ürün Yelpazemiz" data-en="Our Wide Product Range">Geniş Ürün Yelpazemiz</h2>
+      <p class="section-sub" data-tr="Ev aletleri, endüstriyel ekipmanlar ve ticari uygulamalar için sertifikalı elektrik bileşenleri." data-en="Certified electrical components for home appliances, industrial equipment and commercial applications.">
+        Ev aletleri, endüstriyel ekipmanlar ve ticari uygulamalar için sertifikalı elektrik bileşenleri.
+      </p>
+    </div>
+    <div class="filter-bar" id="filterBar">
+      <button class="filter-btn active" data-filter="all"        data-tr="Tümü"           data-en="All">Tümü</button>
+      <button class="filter-btn"        data-filter="rocker"     data-tr="Rocker Anahtar" data-en="Rocker Switch">Rocker Anahtar</button>
+      <button class="filter-btn"        data-filter="mikro"      data-tr="Mikro Anahtar"  data-en="Micro Switch">Mikro Anahtar</button>
+      <button class="filter-btn"        data-filter="surgu"      data-tr="Sürgülü Anahtar" data-en="Slide Switch">Sürgülü Anahtar</button>
+      <button class="filter-btn"        data-filter="buton"      data-tr="Butonlu Anahtar" data-en="Push Button">Butonlu Anahtar</button>
+      <button class="filter-btn"        data-filter="antivandal" data-tr="Anti-Vandal"    data-en="Anti-Vandal">Anti-Vandal</button>
+      <button class="filter-btn"        data-filter="diger"      data-tr="Diğer"          data-en="Other">Diğer</button>
+    </div>
+    <div class="products-grid" id="productsGrid">
+
+      <!-- CO Rocker Switch -->
+      <div class="product-card">
+        <div class="product-img">
+          <img id="img-co" src="switch picture/rocker switch/CO2G.jpg" alt="CO" loading="lazy" />
+        </div>
+        <div class="product-thumbs">
+          <img class="product-thumb active" src="switch picture/rocker switch/CO2G.jpg"      onclick="switchThumb(this,'img-co')" alt="CO2G"      data-name="CO2G" />
+          <img class="product-thumb"        src="switch picture/rocker switch/CO2M.jpg"      onclick="switchThumb(this,'img-co')" alt="CO2M"      data-name="CO2M" />
+          <img class="product-thumb"        src="switch picture/rocker switch/COM.jpg"       onclick="switchThumb(this,'img-co')" alt="COM"       data-name="COM" />
+          <img class="product-thumb"        src="switch picture/rocker switch/COMblack.jpg"  onclick="switchThumb(this,'img-co')" alt="COMblack"  data-name="COM (Siyah)" />
+          <img class="product-thumb"        src="switch picture/rocker switch/COP.jpg"       onclick="switchThumb(this,'img-co')" alt="COP"       data-name="COP" />
+          <img class="product-thumb"        src="switch picture/rocker switch/CO with cap.jpg" onclick="switchThumb(this,'img-co')" alt="CO cap"  data-name="CO (Kapaklı)" />
+        </div>
+        <div class="product-info">
+          <span class="product-tag" data-tr="ROCKER ANAHTAR" data-en="ROCKER SWITCH">ROCKER ANAHTAR</span>
+          <div class="product-name">CO2G</div>
+          <div class="product-desc" data-tr="Saç kurutma makinesi için özel tasarım rocker anahtar. Yüksek kaliteli bakır temas, düşük ısı üretimi. CO, COM, COP ve kapaklı varyantlar mevcut." data-en="Rocker switch specially designed for hair dryers. High-quality copper contact, low heat generation. CO, COM, COP and capped variants available.">
+            Saç kurutma makinesi için özel tasarım rocker anahtar. Yüksek kaliteli bakır temas, düşük ısı üretimi. CO, COM, COP ve kapaklı varyantlar mevcut.
+          </div>
+        </div>
+      </div>
+
+      <!-- HERO Rocker Switch -->
+      <div class="product-card">
+        <div class="product-img">
+          <img id="img-hero" src="switch picture/rocker switch/HERO-1.jpg" alt="HERO" loading="lazy" />
+        </div>
+        <div class="product-thumbs">
+          <img class="product-thumb active" src="switch picture/rocker switch/HERO-1.jpg" onclick="switchThumb(this,'img-hero')" alt="HERO-1" data-name="HERO" />
+          <img class="product-thumb"        src="switch picture/rocker switch/HERO-2.jpg" onclick="switchThumb(this,'img-hero')" alt="HERO-2" data-name="HERO (Varyant)" />
+        </div>
+        <div class="product-info">
+          <span class="product-tag" data-tr="ROCKER ANAHTAR" data-en="ROCKER SWITCH">ROCKER ANAHTAR</span>
+          <div class="product-name">HERO</div>
+          <div class="product-desc" data-tr="Genel amaçlı rocker anahtar. Güçlü bakır temas sistemi, uzun mekanik ömür. Ev aletleri ve güç ekipmanları için ideal." data-en="General-purpose rocker switch. Robust copper contact system, long mechanical life. Ideal for home appliances and power equipment.">
+            Genel amaçlı rocker anahtar. Güçlü bakır temas sistemi, uzun mekanik ömür. Ev aletleri ve güç ekipmanları için ideal.
+          </div>
+        </div>
+      </div>
+
+      <!-- KCD2 Rocker Switch -->
+      <div class="product-card">
+        <div class="product-img">
+          <img id="img-kcd2" src="switch picture/rocker switch/KCD2.jpg" alt="KCD2" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <span class="product-tag" data-tr="ROCKER ANAHTAR" data-en="ROCKER SWITCH">ROCKER ANAHTAR</span>
+          <div class="product-name">KCD2</div>
+          <div class="product-desc" data-tr="Orta kapasiteli rocker anahtar. 16A/250V. Panel montajına uygun, iki ve üç pinli varyantlar. Güç aletleri ve endüstriyel cihazlarda kullanılır." data-en="Medium-capacity rocker switch. 16A/250V. Suitable for panel mounting, two and three pin variants. Used in power tools and industrial devices.">
+            Orta kapasiteli rocker anahtar. 16A/250V. Panel montajına uygun, iki ve üç pinli varyantlar. Güç aletleri ve endüstriyel cihazlarda kullanılır.
+          </div>
+        </div>
+      </div>
+
+      <!-- KCD3 Rocker Switch -->
+      <div class="product-card">
+        <div class="product-img">
+          <img id="img-kcd3" src="switch picture/rocker switch/KCD3.jpg" alt="KCD3" loading="lazy" />
+        </div>
+        <div class="product-thumbs">
+          <img class="product-thumb active" src="switch picture/rocker switch/KCD3.jpg"             onclick="switchThumb(this,'img-kcd3')" alt="KCD3"          data-name="KCD3" />
+          <img class="product-thumb"        src="switch picture/rocker switch/KCD3 without cap.jpg" onclick="switchThumb(this,'img-kcd3')" alt="KCD3 no cap"   data-name="KCD3 (Kapsız)" />
+        </div>
+        <div class="product-info">
+          <span class="product-tag" data-tr="ROCKER ANAHTAR" data-en="ROCKER SWITCH">ROCKER ANAHTAR</span>
+          <div class="product-name">KCD3</div>
+          <div class="product-desc" data-tr="Ağır hizmet tipi rocker anahtar. 20A/125V · 16A/250V. Dayanıklı gövde, endüstriyel ekipmanlar ve güç dağıtım panelleri için." data-en="Heavy-duty rocker switch. 20A/125V · 16A/250V. Durable body, for industrial equipment and power distribution panels.">
+            Ağır hizmet tipi rocker anahtar. 20A/125V · 16A/250V. Dayanıklı gövde, endüstriyel ekipmanlar ve güç dağıtım panelleri için.
+          </div>
+        </div>
+      </div>
+
+      <!-- KCD3-1 Rocker Switch -->
+      <div class="product-card">
+        <div class="product-img">
+          <img id="img-kcd31" src="switch picture/rocker switch/KCD3-1.jpg" alt="KCD3-1" loading="lazy" />
+        </div>
+        <div class="product-thumbs">
+          <img class="product-thumb active" src="switch picture/rocker switch/KCD3-1.jpg"       onclick="switchThumb(this,'img-kcd31')" alt="KCD3-1"       data-name="KCD3-1" />
+          <img class="product-thumb"        src="switch picture/rocker switch/KCD3-1 white.jpg" onclick="switchThumb(this,'img-kcd31')" alt="KCD3-1 white" data-name="KCD3-1 (Beyaz)" />
+        </div>
+        <div class="product-info">
+          <span class="product-tag" data-tr="ROCKER ANAHTAR" data-en="ROCKER SWITCH">ROCKER ANAHTAR</span>
+          <div class="product-name">KCD3-1 Mini</div>
+          <div class="product-desc" data-tr="KCD3 serisinin mini versiyonu. Kompakt tasarım, siyah ve beyaz renk seçenekleri. Küçük ev aletleri ve alet kutularına uygun." data-en="Mini version of the KCD3 series. Compact design, black and white colour options. Suitable for small home appliances and tool boxes.">
+            KCD3 serisinin mini versiyonu. Kompakt tasarım, siyah ve beyaz renk seçenekleri. Küçük ev aletleri ve alet kutularına uygun.
+          </div>
+        </div>
+      </div>
+
+      <!-- KCD3-6 Rocker Switch -->
+      <div class="product-card">
+        <div class="product-img">
+          <img id="img-kcd36" src="switch picture/rocker switch/KCD3-6.jpg" alt="KCD3-6" loading="lazy" />
+        </div>
+        <div class="product-thumbs">
+          <img class="product-thumb active" src="switch picture/rocker switch/KCD3-6.jpg"                   onclick="switchThumb(this,'img-kcd36')" alt="KCD3-6"          data-name="KCD3-6" />
+          <img class="product-thumb"        src="switch picture/rocker switch/KCD3-6 black.jpg"             onclick="switchThumb(this,'img-kcd36')" alt="KCD3-6 black"    data-name="KCD3-6 (Siyah)" />
+          <img class="product-thumb"        src="switch picture/rocker switch/KCD3-6 black on  off on.jpg"  onclick="switchThumb(this,'img-kcd36')" alt="KCD3-6 on-off-on" data-name="KCD3-6 On-Off-On" />
+          <img class="product-thumb"        src="switch picture/rocker switch/43.jpg"                       onclick="switchThumb(this,'img-kcd36')" alt="43"               data-name="43" />
+          <img class="product-thumb"        src="switch picture/rocker switch/43.409黑.jpg"                 onclick="switchThumb(this,'img-kcd36')" alt="43 black"         data-name="43.409 (Siyah)" />
+        </div>
+        <div class="product-info">
+          <span class="product-tag" data-tr="ROCKER ANAHTAR" data-en="ROCKER SWITCH">ROCKER ANAHTAR</span>
+          <div class="product-name">KCD3-6</div>
+          <div class="product-desc" data-tr="Üç pozisyonlu (ON-OFF-ON) rocker anahtar. Siyah ve gri gövde seçenekleri, endüstriyel güç kontrolü ve makine panelleri için." data-en="Three-position (ON-OFF-ON) rocker switch. Black and grey body options, for industrial power control and machine panels.">
+            Üç pozisyonlu (ON-OFF-ON) rocker anahtar. Siyah ve gri gövde seçenekleri, endüstriyel güç kontrolü ve makine panelleri için.
+          </div>
+        </div>
+      </div>
+
+      <!-- FM1-1115 Micro Switch -->
+      <div class="product-card">
+        <div class="product-img">
+          <img id="img-fm1" src="switch picture/Micro switch/FM1-1115.jpg" alt="FM1-1115" loading="lazy" />
+        </div>
+        <div class="product-thumbs">
+          <img class="product-thumb active" src="switch picture/Micro switch/FM1-1115.jpg"    onclick="switchThumb(this,'img-fm1')" alt="FM1-1115"   data-name="FM1-1115" />
+          <img class="product-thumb"        src="switch picture/Micro switch/FM1-1115 (2).jpg" onclick="switchThumb(this,'img-fm1')" alt="FM1-1115 2" data-name="FM1-1115 (2)" />
+          <img class="product-thumb"        src="switch picture/Micro switch/FM1-1115S.jpg"   onclick="switchThumb(this,'img-fm1')" alt="FM1-1115S"  data-name="FM1-1115S" />
+        </div>
+        <div class="product-info">
+          <span class="product-tag" data-tr="MİKRO ANAHTAR" data-en="MICRO SWITCH">MİKRO ANAHTAR</span>
+          <div class="product-name">FM1-1115</div>
+          <div class="product-desc" data-tr="Hassas temaslı mikro anahtar. 125V/15A · 250V/10A. Buzdolabı, fırın ve küçük ev aletlerinde pozisyon algılama için kullanılır. FM1-1115S slim varyantı da mevcuttur." data-en="Micro switch with precision contact. 125V/15A · 250V/10A. Used for position sensing in refrigerators, ovens and small home appliances. FM1-1115S slim variant also available.">
+            Hassas temaslı mikro anahtar. 125V/15A · 250V/10A. Buzdolabı, fırın ve küçük ev aletlerinde pozisyon algılama için kullanılır. FM1-1115S slim varyantı da mevcuttur.
+          </div>
+        </div>
+      </div>
+
+      <!-- KW4A(S) Micro Switch -->
+      <div class="product-card">
+        <div class="product-img">
+          <img id="img-kw4a" src="switch picture/Micro switch/KW4A(S).jpg" alt="KW4A(S)" loading="lazy" />
+        </div>
+        <div class="product-thumbs">
+          <img class="product-thumb active" src="switch picture/Micro switch/KW4A(S).jpg"           onclick="switchThumb(this,'img-kw4a')" alt="KW4A(S)"          data-name="KW4A(S)" />
+          <img class="product-thumb"        src="switch picture/Micro switch/KW4A(S) (2).jpg"       onclick="switchThumb(this,'img-kw4a')" alt="KW4A(S) 2"        data-name="KW4A(S) (2)" />
+          <img class="product-thumb"        src="switch picture/Micro switch/KW4A(S) with lever.jpg" onclick="switchThumb(this,'img-kw4a')" alt="KW4A lever"       data-name="KW4A(S) Kollu" />
+          <img class="product-thumb"        src="switch picture/Micro switch/KW4A(S) z.jpg"         onclick="switchThumb(this,'img-kw4a')" alt="KW4A(S) z"         data-name="KW4A(S)-Z" />
+          <img class="product-thumb"        src="switch picture/Micro switch/KW4A(S)-Z.jpg"         onclick="switchThumb(this,'img-kw4a')" alt="KW4A(S)-Z variant"  data-name="KW4A(S)-Z (2)" />
+        </div>
+        <div class="product-info">
+          <span class="product-tag" data-tr="MİKRO ANAHTAR" data-en="MICRO SWITCH">MİKRO ANAHTAR</span>
+          <div class="product-name">KW4A(S)</div>
+          <div class="product-desc" data-tr="Kollu ve kolsuz mikro anahtar seçenekleri. Yüksek hassasiyetli tetikleme mekanizması; asansör, otomatik kapı ve endüstriyel otomasyon uygulamaları için." data-en="Micro switch with and without lever options. High-precision trigger mechanism; for elevator, automatic door and industrial automation applications.">
+            Kollu ve kolsuz mikro anahtar seçenekleri. Yüksek hassasiyetli tetikleme mekanizması; asansör, otomatik kapı ve endüstriyel otomasyon uygulamaları için.
+          </div>
+        </div>
+      </div>
+
+      <!-- SB1-16 Micro Switch -->
+      <div class="product-card">
+        <div class="product-img">
+          <img id="img-sb116" src="switch picture/Micro switch/SB1-16.jpg" alt="SB1-16" loading="lazy" />
+        </div>
+        <div class="product-thumbs">
+          <img class="product-thumb active" src="switch picture/Micro switch/SB1-16.jpg"             onclick="switchThumb(this,'img-sb116')" alt="SB1-16"          data-name="SB1-16" />
+          <img class="product-thumb"        src="switch picture/Micro switch/SB1-16 NO.jpg"          onclick="switchThumb(this,'img-sb116')" alt="SB1-16 NO"       data-name="SB1-16 NO" />
+          <img class="product-thumb"        src="switch picture/Micro switch/SB1-16 twins switch.jpg" onclick="switchThumb(this,'img-sb116')" alt="SB1-16 twins"   data-name="SB1-16 İkiz" />
+          <img class="product-thumb"        src="switch picture/Micro switch/SB1-16GD.jpg"           onclick="switchThumb(this,'img-sb116')" alt="SB1-16GD"        data-name="SB1-16GD" />
+          <img class="product-thumb"        src="switch picture/Micro switch/SB1-16滚轮.jpg"          onclick="switchThumb(this,'img-sb116')" alt="SB1-16 roller"   data-name="SB1-16 Makaralı" />
+          <img class="product-thumb"        src="switch picture/Micro switch/SB1-16防倾倒.jpg"        onclick="switchThumb(this,'img-sb116')" alt="SB1-16 tilt"     data-name="SB1-16 Devrilme" />
+        </div>
+        <div class="product-info">
+          <span class="product-tag" data-tr="MİKRO ANAHTAR" data-en="MICRO SWITCH">MİKRO ANAHTAR</span>
+          <div class="product-name">SB1-16</div>
+          <div class="product-desc" data-tr="Çok varyantlı mikro anahtar serisi. Standart, NO kontaklı, ikiz, makaralı ve devrilme korumalı seçenekler. Isıtıcı ve küçük ev aletleri için." data-en="Multi-variant micro switch series. Standard, NO contact, twin, roller and tilt-protection options. For heaters and small home appliances.">
+            Çok varyantlı mikro anahtar serisi. Standart, NO kontaklı, ikiz, makaralı ve devrilme korumalı seçenekler. Isıtıcı ve küçük ev aletleri için.
+          </div>
+        </div>
+      </div>
+
+      <!-- SB1-3 Micro Switch -->
+      <div class="product-card">
+        <div class="product-img">
+          <img id="img-sb13" src="switch picture/Micro switch/SB1-3.jpg" alt="SB1-3" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <span class="product-tag" data-tr="MİKRO ANAHTAR" data-en="MICRO SWITCH">MİKRO ANAHTAR</span>
+          <div class="product-name">SB1-3</div>
+          <div class="product-desc" data-tr="Kompakt mikro anahtar. Küçük boyutu ile dar alanlara kolay montaj; su ısıtıcı, demleme makinesi ve kişisel bakım cihazları için tasarlanmıştır." data-en="Compact micro switch. Easy installation in tight spaces with small size; designed for kettles, brewing machines and personal care devices.">
+            Kompakt mikro anahtar. Küçük boyutu ile dar alanlara kolay montaj; su ısıtıcı, demleme makinesi ve kişisel bakım cihazları için tasarlanmıştır.
+          </div>
+        </div>
+      </div>
+
+      <!-- MS1 Frying/Tilt Switch -->
+      <div class="product-card">
+        <div class="product-img">
+          <img id="img-ms1" src="switch picture/Micro switch/MS1 frying switch.jpg" alt="MS1" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <span class="product-tag" data-tr="MİKRO ANAHTAR" data-en="MICRO SWITCH">MİKRO ANAHTAR</span>
+          <div class="product-name">MS1 Frying Switch</div>
+          <div class="product-desc" data-tr="Kızartma makinesi ve derin yağ fritözleri için özel mikro anahtar. Yüksek sıcaklığa dayanıklı yapı, güvenli çalışma için otomatik sıcaklık kontrolü." data-en="Special micro switch for frying machines and deep fat fryers. High temperature resistant structure, automatic temperature control for safe operation.">
+            Kızartma makinesi ve derin yağ fritözleri için özel mikro anahtar. Yüksek sıcaklığa dayanıklı yapı, güvenli çalışma için otomatik sıcaklık kontrolü.
+          </div>
+        </div>
+      </div>
+
+      <!-- DSE Slide Switch -->
+      <div class="product-card">
+        <div class="product-img">
+          <img id="img-dse" src="switch picture/slide switch/DSE.jpg" alt="DSE" loading="lazy" />
+        </div>
+        <div class="product-thumbs">
+          <img class="product-thumb active" src="switch picture/slide switch/DSE.jpg"        onclick="switchThumb(this,'img-dse')" alt="DSE"      data-name="DSE" />
+          <img class="product-thumb"        src="switch picture/slide switch/DSE- new.jpg"   onclick="switchThumb(this,'img-dse')" alt="DSE new"  data-name="DSE (New)" />
+          <img class="product-thumb"        src="switch picture/slide switch/DSE-2210.jpg"   onclick="switchThumb(this,'img-dse')" alt="DSE-2210" data-name="DSE-2210" />
+          <img class="product-thumb"        src="switch picture/slide switch/DSE-D.jpg"      onclick="switchThumb(this,'img-dse')" alt="DSE-D"    data-name="DSE-D" />
+        </div>
+        <div class="product-info">
+          <span class="product-tag" data-tr="SÜRGÜLÜ ANAHTAR" data-en="SLIDE SWITCH">SÜRGÜLÜ ANAHTAR</span>
+          <div class="product-name">DSE</div>
+          <div class="product-desc" data-tr="Çift kutuplu, çok pozisyonlu sürgülü anahtar. 125V/6A · 250V/3A. Saç kurutma makinesi ve küçük ev aletlerinde yaygın kullanım." data-en="Double pole, multi-position slide switch. 125V/6A · 250V/3A. Widely used in hair dryers and small home appliances.">
+            Çift kutuplu, çok pozisyonlu sürgülü anahtar. 125V/6A · 250V/3A. Saç kurutma makinesi ve küçük ev aletlerinde yaygın kullanım.
+          </div>
+        </div>
+      </div>
+
+      <!-- DSE-S Slide Switch -->
+      <div class="product-card">
+        <div class="product-img">
+          <img id="img-dses" src="switch picture/slide switch/DSE-S-2310.jpg" alt="DSE-S" loading="lazy" />
+        </div>
+        <div class="product-thumbs">
+          <img class="product-thumb active" src="switch picture/slide switch/DSE-S-2310.jpg" onclick="switchThumb(this,'img-dses')" alt="DSE-S-2310" data-name="DSE-S-2310" />
+          <img class="product-thumb"        src="switch picture/slide switch/DSE-S-2410.jpg" onclick="switchThumb(this,'img-dses')" alt="DSE-S-2410" data-name="DSE-S-2410" />
+        </div>
+        <div class="product-info">
+          <span class="product-tag" data-tr="SÜRGÜLÜ ANAHTAR" data-en="SLIDE SWITCH">SÜRGÜLÜ ANAHTAR</span>
+          <div class="product-name">DSE-S</div>
+          <div class="product-desc" data-tr="DSE serisinin ince profil versiyonu. Kompakt gövde ile dar alanlara kolay montaj; küçük ev aletleri için uygundur." data-en="Slim-profile version of the DSE series. Easy installation in tight spaces; suitable for compact home appliances.">
+            DSE serisinin ince profil versiyonu. Kompakt gövde ile dar alanlara kolay montaj; küçük ev aletleri için uygundur.
+          </div>
+        </div>
+      </div>
+
+      <!-- SB5 Slide Switch -->
+      <div class="product-card">
+        <div class="product-img">
+          <img id="img-sb5" src="switch picture/slide switch/SB5-1.jpg" alt="SB5" loading="lazy" />
+        </div>
+        <div class="product-thumbs">
+          <img class="product-thumb active" src="switch picture/slide switch/SB5-1.jpg" onclick="switchThumb(this,'img-sb5')" alt="SB5-1" data-name="SB5" />
+          <img class="product-thumb"        src="switch picture/slide switch/SB5-2.jpg" onclick="switchThumb(this,'img-sb5')" alt="SB5-2" data-name="SB5-7" />
+        </div>
+        <div class="product-info">
+          <span class="product-tag" data-tr="SÜRGÜLÜ ANAHTAR" data-en="SLIDE SWITCH">SÜRGÜLÜ ANAHTAR</span>
+          <div class="product-name">SB5 / SB5-7</div>
+          <div class="product-desc" data-tr="Kompakt çift kutuplu sürgülü anahtar. Güvenilir mekanik ömür; güç aletleri ve endüstriyel ekipmanlarda kullanılır." data-en="Compact double-pole slide switch. Reliable mechanical life; used in power tools and industrial equipment.">
+            Kompakt çift kutuplu sürgülü anahtar. Güvenilir mekanik ömür; güç aletleri ve endüstriyel ekipmanlarda kullanılır.
+          </div>
+        </div>
+      </div>
+
+      <!-- SL-401 Slide Switch -->
+      <div class="product-card">
+        <div class="product-img">
+          <img id="img-sl401" src="switch picture/slide switch/SL-401.jpg" alt="SL-401" loading="lazy" />
+        </div>
+        <div class="product-thumbs">
+          <img class="product-thumb active" src="switch picture/slide switch/SL-401.jpg"   onclick="switchThumb(this,'img-sl401')" alt="SL-401"   data-name="SL-401" />
+          <img class="product-thumb"        src="switch picture/slide switch/SL-401-1.jpg" onclick="switchThumb(this,'img-sl401')" alt="SL-401-1" data-name="SL-401-1" />
+          <img class="product-thumb"        src="switch picture/slide switch/SL-401-D.jpg" onclick="switchThumb(this,'img-sl401')" alt="SL-401-D" data-name="SL-401-D" />
+        </div>
+        <div class="product-info">
+          <span class="product-tag" data-tr="SÜRGÜLÜ ANAHTAR" data-en="SLIDE SWITCH">SÜRGÜLÜ ANAHTAR</span>
+          <div class="product-name">SL-401</div>
+          <div class="product-desc" data-tr="Çoklu pozisyon seçenekli standart sürgülü anahtar. Dayanıklı gövde yapısı, geniş uygulama yelpazesi." data-en="Standard slide switch with multiple position options. Durable body construction, wide application range.">
+            Çoklu pozisyon seçenekli standart sürgülü anahtar. Dayanıklı gövde yapısı, geniş uygulama yelpazesi.
+          </div>
+        </div>
+      </div>
+
+      <!-- XN-14 Slide Switch -->
+      <div class="product-card">
+        <div class="product-img">
+          <img id="img-xn14" src="switch picture/slide switch/XN-14-1.jpg" alt="XN-14" loading="lazy" />
+        </div>
+        <div class="product-thumbs">
+          <img class="product-thumb active" src="switch picture/slide switch/XN-14-1.jpg" onclick="switchThumb(this,'img-xn14')" alt="XN-14-1" data-name="XN-14" />
+          <img class="product-thumb"        src="switch picture/slide switch/XN-14-2.jpg" onclick="switchThumb(this,'img-xn14')" alt="XN-14-2" data-name="XN-14 (Pin)" />
+        </div>
+        <div class="product-info">
+          <span class="product-tag" data-tr="SÜRGÜLÜ ANAHTAR" data-en="SLIDE SWITCH">SÜRGÜLÜ ANAHTAR</span>
+          <div class="product-name">XN-14</div>
+          <div class="product-desc" data-tr="Ağır hizmet tipi sürgülü anahtar. Yüksek akım toleransı; güç aletleri ve endüstriyel ekipmanlar için tasarlanmıştır." data-en="Heavy-duty slide switch. High current tolerance; designed for power tools and industrial equipment.">
+            Ağır hizmet tipi sürgülü anahtar. Yüksek akım toleransı; güç aletleri ve endüstriyel ekipmanlar için tasarlanmıştır.
+          </div>
+        </div>
+      </div>
+
+      <!-- XN-14B Slide Switch -->
+      <div class="product-card">
+        <div class="product-img">
+          <img id="img-xn14b" src="switch picture/slide switch/XN-14B-2.jpg" alt="XN-14B" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <span class="product-tag" data-tr="SÜRGÜLÜ ANAHTAR" data-en="SLIDE SWITCH">SÜRGÜLÜ ANAHTAR</span>
+          <div class="product-name">XN-14B</div>
+          <div class="product-desc" data-tr="XN-14 serisinin gelişmiş versiyonu. Farklı pin konfigürasyonu ile çeşitli devre tasarımlarına uyum sağlar." data-en="Advanced version of the XN-14 series. Adapts to various circuit designs with different pin configuration.">
+            XN-14 serisinin gelişmiş versiyonu. Farklı pin konfigürasyonu ile çeşitli devre tasarımlarına uyum sağlar.
+          </div>
+        </div>
+      </div>
+
+      <!-- XN-14BX Slide Switch -->
+      <div class="product-card">
+        <div class="product-img">
+          <img id="img-xn14bx" src="switch picture/slide switch/XN-14BX-2.jpg" alt="XN-14BX" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <span class="product-tag" data-tr="SÜRGÜLÜ ANAHTAR" data-en="SLIDE SWITCH">SÜRGÜLÜ ANAHTAR</span>
+          <div class="product-name">XN-14BX</div>
+          <div class="product-desc" data-tr="XN-14B serisinin X versiyonu. Gelişmiş temas tasarımı ile uzun ömürlü ve düşük dirençli bağlantı sağlar." data-en="X version of the XN-14B series. Provides long-lasting, low-resistance connection with improved contact design.">
+            XN-14B serisinin X versiyonu. Gelişmiş temas tasarımı ile uzun ömürlü ve düşük dirençli bağlantı sağlar.
+          </div>
+        </div>
+      </div>
+
+      <!-- KA7 / KA22 Push Button -->
+      <div class="product-card">
+        <div class="product-img">
+          <img id="img-ka22" src="switch picture/push button switch/KA22.jpg" alt="KA22" loading="lazy" />
+        </div>
+        <div class="product-thumbs">
+          <img class="product-thumb active" src="switch picture/push button switch/KA22.jpg" onclick="switchThumb(this,'img-ka22')" alt="KA22" data-name="KA22" />
+          <img class="product-thumb"        src="switch picture/push button switch/KA7.jpg"  onclick="switchThumb(this,'img-ka22')" alt="KA7"  data-name="KA7" />
+        </div>
+        <div class="product-info">
+          <span class="product-tag" data-tr="BUTONLU ANAHTAR" data-en="PUSH BUTTON">BUTONLU ANAHTAR</span>
+          <div class="product-name">KA7 / KA22</div>
+          <div class="product-desc" data-tr="Plastik gövdeli push button anahtar. Anlık ve kilitli varyantlar. Küçük ev aletleri, elektrikli süpürge ve mutfak gereçlerinde yaygın kullanım." data-en="Plastic body push button switch. Momentary and latching variants. Widely used in small home appliances, vacuum cleaners and kitchen appliances.">
+            Plastik gövdeli push button anahtar. Anlık ve kilitli varyantlar. Küçük ev aletleri, elektrikli süpürge ve mutfak gereçlerinde yaygın kullanım.
+          </div>
+        </div>
+      </div>
+
+      <!-- KAN-J2 Push Button -->
+      <div class="product-card">
+        <div class="product-img">
+          <img id="img-kanj2" src="switch picture/push button switch/KAN-J2-1.jpg" alt="KAN-J2" loading="lazy" />
+        </div>
+        <div class="product-thumbs">
+          <img class="product-thumb active" src="switch picture/push button switch/KAN-J2-1.jpg" onclick="switchThumb(this,'img-kanj2')" alt="KAN-J2-1" data-name="KAN-J2-1" />
+          <img class="product-thumb"        src="switch picture/push button switch/KAN-J2-2.jpg" onclick="switchThumb(this,'img-kanj2')" alt="KAN-J2-2" data-name="KAN-J2-2" />
+        </div>
+        <div class="product-info">
+          <span class="product-tag" data-tr="BUTONLU ANAHTAR" data-en="PUSH BUTTON">BUTONLU ANAHTAR</span>
+          <div class="product-name">KAN-J2</div>
+          <div class="product-desc" data-tr="Metal gövdeli push button anahtar. Yüksek dayanıklılık, endüstriyel kontrol panelleri ve güç ekipmanları için tasarlanmıştır. NO/NC kontak seçenekleri." data-en="Metal body push button switch. High durability, designed for industrial control panels and power equipment. NO/NC contact options.">
+            Metal gövdeli push button anahtar. Yüksek dayanıklılık, endüstriyel kontrol panelleri ve güç ekipmanları için tasarlanmıştır. NO/NC kontak seçenekleri.
+          </div>
+        </div>
+      </div>
+
+      <!-- KAN-J4 Push Button -->
+      <div class="product-card">
+        <div class="product-img">
+          <img id="img-kanj4" src="switch picture/push button switch/KAN-J4.jpg" alt="KAN-J4" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <span class="product-tag" data-tr="BUTONLU ANAHTAR" data-en="PUSH BUTTON">BUTONLU ANAHTAR</span>
+          <div class="product-name">KAN-J4</div>
+          <div class="product-desc" data-tr="4 pinli metal push button anahtar. Kompakt tasarım, çoklu devre bağlantısı için uygundur. Endüstriyel makine ve otomasyon ekipmanlarında kullanılır." data-en="4-pin metal push button switch. Compact design, suitable for multiple circuit connections. Used in industrial machinery and automation equipment.">
+            4 pinli metal push button anahtar. Kompakt tasarım, çoklu devre bağlantısı için uygundur. Endüstriyel makine ve otomasyon ekipmanlarında kullanılır.
+          </div>
+        </div>
+      </div>
+
+      <!-- KAN-L7 Push Button -->
+      <div class="product-card">
+        <div class="product-img">
+          <img id="img-kanl7" src="switch picture/push button switch/KAN-L7.jpg" alt="KAN-L7" loading="lazy" />
+        </div>
+        <div class="product-thumbs">
+          <img class="product-thumb active" src="switch picture/push button switch/KAN-L7.jpg"  onclick="switchThumb(this,'img-kanl7')" alt="KAN-L7"  data-name="KAN-L7" />
+          <img class="product-thumb"        src="switch picture/push button switch/KAN-L7F.jpg" onclick="switchThumb(this,'img-kanl7')" alt="KAN-L7F" data-name="KAN-L7F" />
+        </div>
+        <div class="product-info">
+          <span class="product-tag" data-tr="BUTONLU ANAHTAR" data-en="PUSH BUTTON">BUTONLU ANAHTAR</span>
+          <div class="product-name">KAN-L7</div>
+          <div class="product-desc" data-tr="Kilitli (latching) push button anahtar. KAN-L7F flanşlı montaj varyantı da mevcuttur. Güç kontrol devreleri ve endüstriyel ekipmanlar için." data-en="Latching push button switch. KAN-L7F flanged mounting variant also available. For power control circuits and industrial equipment.">
+            Kilitli (latching) push button anahtar. KAN-L7F flanşlı montaj varyantı da mevcuttur. Güç kontrol devreleri ve endüstriyel ekipmanlar için.
+          </div>
+        </div>
+      </div>
+
+      <!-- KBM Push Button -->
+      <div class="product-card">
+        <div class="product-img">
+          <img id="img-kbm" src="switch picture/push button switch/KBM.jpg" alt="KBM" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <span class="product-tag" data-tr="BUTONLU ANAHTAR" data-en="PUSH BUTTON">BUTONLU ANAHTAR</span>
+          <div class="product-name">KBM</div>
+          <div class="product-desc" data-tr="Membran push button anahtar. Su ve toz geçirmez yapı (IP65). Mutfak aletleri, tıbbi cihazlar ve temiz oda ekipmanları için hijyenik kullanım." data-en="Membrane push button switch. Waterproof and dustproof structure (IP65). Hygienic use for kitchen appliances, medical devices and clean room equipment.">
+            Membran push button anahtar. Su ve toz geçirmez yapı (IP65). Mutfak aletleri, tıbbi cihazlar ve temiz oda ekipmanları için hijyenik kullanım.
+          </div>
+        </div>
+      </div>
+
+      <!-- RL5 Push Button -->
+      <div class="product-card">
+        <div class="product-img">
+          <img id="img-rl5" src="switch picture/push button switch/RL5-1.jpg" alt="RL5" loading="lazy" />
+        </div>
+        <div class="product-thumbs">
+          <img class="product-thumb active" src="switch picture/push button switch/RL5-1.jpg"  onclick="switchThumb(this,'img-rl5')" alt="RL5-1"  data-name="RL5-1" />
+          <img class="product-thumb"        src="switch picture/push button switch/RL5-1F.jpg" onclick="switchThumb(this,'img-rl5')" alt="RL5-1F" data-name="RL5-1F" />
+          <img class="product-thumb"        src="switch picture/push button switch/RL5-2.jpg"  onclick="switchThumb(this,'img-rl5')" alt="RL5-2"  data-name="RL5-2" />
+        </div>
+        <div class="product-info">
+          <span class="product-tag" data-tr="BUTONLU ANAHTAR" data-en="PUSH BUTTON">BUTONLU ANAHTAR</span>
+          <div class="product-name">RL5-1</div>
+          <div class="product-desc" data-tr="Rocker-latch kombinasyonlu push button anahtar. RL5-1, RL5-1F (flanşlı) ve RL5-2 varyantları. Endüstriyel güç kontrolü ve makine panelleri için." data-en="Rocker-latch combination push button switch. RL5-1, RL5-1F (flanged) and RL5-2 variants. For industrial power control and machine panels.">
+            Rocker-latch kombinasyonlu push button anahtar. RL5-1, RL5-1F (flanşlı) ve RL5-2 varyantları. Endüstriyel güç kontrolü ve makine panelleri için.
+          </div>
+        </div>
+      </div>
+
+      <!-- SIB5 / SIB6 Push Button -->
+      <div class="product-card">
+        <div class="product-img">
+          <img id="img-sib56" src="switch picture/push button switch/SIB5.jpg" alt="SIB5" loading="lazy" />
+        </div>
+        <div class="product-thumbs">
+          <img class="product-thumb active" src="switch picture/push button switch/SIB5.jpg" onclick="switchThumb(this,'img-sib56')" alt="SIB5" data-name="SIB5" />
+          <img class="product-thumb"        src="switch picture/push button switch/SIB6.jpg" onclick="switchThumb(this,'img-sib56')" alt="SIB6" data-name="SIB6" />
+        </div>
+        <div class="product-info">
+          <span class="product-tag" data-tr="BUTONLU ANAHTAR" data-en="PUSH BUTTON">BUTONLU ANAHTAR</span>
+          <div class="product-name">SIB5 / SIB6</div>
+          <div class="product-desc" data-tr="Paslanmaz çelik gövdeli yuvarlak push button anahtar. IP67 su geçirmezlik. Dış ortam ekipmanları, denizcilik ve ağır endüstriyel uygulamalar için." data-en="Round push button switch with stainless steel body. IP67 waterproof. For outdoor equipment, marine and heavy industrial applications.">
+            Paslanmaz çelik gövdeli yuvarlak push button anahtar. IP67 su geçirmezlik. Dış ortam ekipmanları, denizcilik ve ağır endüstriyel uygulamalar için.
+          </div>
+        </div>
+      </div>
+
+      <!-- HC Push Button -->
+      <div class="product-card">
+        <div class="product-img">
+          <img id="img-hc" src="switch picture/push button switch/HC.jpg" alt="HC" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <span class="product-tag" data-tr="BUTONLU ANAHTAR" data-en="PUSH BUTTON">BUTONLU ANAHTAR</span>
+          <div class="product-name">HC</div>
+          <div class="product-desc" data-tr="Kompakt push button anahtar. Küçük form faktörü ile sınırlı alanlara montaj; küçük ev aletleri ve elektronik ekipmanlarda kullanılır." data-en="Compact push button switch. Mounting in limited spaces with small form factor; used in small home appliances and electronic equipment.">
+            Kompakt push button anahtar. Küçük form faktörü ile sınırlı alanlara montaj; küçük ev aletleri ve elektronik ekipmanlarda kullanılır.
+          </div>
+        </div>
+      </div>
+
+      <!-- Rotary Switch -->
+      <div class="product-card">
+        <div class="product-img">
+          <img src="switch picture/SB1-18-1 rotary switch.jpg" alt="Rotary Switch" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <span class="product-tag" data-tr="ANAHTARLAR" data-en="SWITCHES">ANAHTARLAR</span>
+          <div class="product-name" data-tr="Döner Anahtar" data-en="Rotary Switch">Döner Anahtar</div>
+          <div class="product-desc" data-tr="SB1-18, SIB3 serisi. Çok pozisyonlu döner anahtarlar; ısıtıcı ve fan hız kontrolü uygulamalarına uygundur." data-en="SB1-18, SIB3 series. Multi-position rotary switches suitable for heater and fan speed control applications.">
+            SB1-18, SIB3 serisi. Çok pozisyonlu döner anahtarlar; ısıtıcı ve fan hız kontrolü uygulamalarına uygundur.
+          </div>
+        </div>
+      </div>
+
+      <!-- SIB16 Anti-Vandal Switch -->
+      <div class="product-card">
+        <div class="product-img">
+          <img id="img-sib16" src="switch picture/anti vandal switch/SIB16.jpg" alt="SIB16" loading="lazy" />
+        </div>
+        <div class="product-thumbs">
+          <img class="product-thumb active" src="switch picture/anti vandal switch/SIB16.jpg"    onclick="switchThumb(this,'img-sib16')" alt="SIB16"        data-name="SIB16" />
+          <img class="product-thumb"        src="switch picture/anti vandal switch/SIB16短.jpg"   onclick="switchThumb(this,'img-sib16')" alt="SIB16 Kısa"   data-name="SIB16 (Kısa)" />
+          <img class="product-thumb"        src="switch picture/anti vandal switch/SIB16螺丝.jpg" onclick="switchThumb(this,'img-sib16')" alt="SIB16 Vidalı" data-name="SIB16 (Vidalı)" />
+        </div>
+        <div class="product-info">
+          <span class="product-tag" data-tr="ANTİ-VANDAL" data-en="ANTI-VANDAL">ANTİ-VANDAL</span>
+          <div class="product-name">SIB16</div>
+          <div class="product-desc" data-tr="16mm panel kesimi, paslanmaz çelik gövdeli anti-vandal push button. IP65 koruma. Kısa gövde ve vidalı terminal varyantları mevcuttur. ATM, otomat ve dış ortam panelleri için." data-en="16mm panel cut-out, stainless steel body anti-vandal push button. IP65 protection. Short body and screw terminal variants available. For ATM, vending machines and outdoor panels.">
+            16mm panel kesimi, paslanmaz çelik gövdeli anti-vandal push button. IP65 koruma. Kısa gövde ve vidalı terminal varyantları mevcuttur. ATM, otomat ve dış ortam panelleri için.
+          </div>
+        </div>
+      </div>
+
+      <!-- SIB19 Anti-Vandal Switch -->
+      <div class="product-card">
+        <div class="product-img">
+          <img id="img-sib19" src="switch picture/anti vandal switch/SIB19.jpg" alt="SIB19" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <span class="product-tag" data-tr="ANTİ-VANDAL" data-en="ANTI-VANDAL">ANTİ-VANDAL</span>
+          <div class="product-name">SIB19</div>
+          <div class="product-desc" data-tr="19mm panel kesimi, paslanmaz çelik gövdeli anti-vandal push button. IP65 koruma sınıfı. Endüstriyel kontrol panelleri, kamu ekipmanları ve güvenli erişim sistemleri için." data-en="19mm panel cut-out, stainless steel body anti-vandal push button. IP65 protection class. For industrial control panels, public equipment and secure access systems.">
+            19mm panel kesimi, paslanmaz çelik gövdeli anti-vandal push button. IP65 koruma sınıfı. Endüstriyel kontrol panelleri, kamu ekipmanları ve güvenli erişim sistemleri için.
+          </div>
+        </div>
+      </div>
+
+      <!-- SIB22 Anti-Vandal Switch -->
+      <div class="product-card">
+        <div class="product-img">
+          <img id="img-sib22" src="switch picture/anti vandal switch/SIB22.jpg" alt="SIB22" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <span class="product-tag" data-tr="ANTİ-VANDAL" data-en="ANTI-VANDAL">ANTİ-VANDAL</span>
+          <div class="product-name">SIB22</div>
+          <div class="product-desc" data-tr="22mm panel kesimi, paslanmaz çelik gövdeli anti-vandal push button. Endüstride en yaygın kullanılan boyut. IP67 su geçirmezlik. Makine panelleri ve dış ortam kontrol üniteleri için." data-en="22mm panel cut-out, stainless steel body anti-vandal push button. Most widely used size in industry. IP67 waterproof. For machine panels and outdoor control units.">
+            22mm panel kesimi, paslanmaz çelik gövdeli anti-vandal push button. Endüstride en yaygın kullanılan boyut. IP67 su geçirmezlik. Makine panelleri ve dış ortam kontrol üniteleri için.
+          </div>
+        </div>
+      </div>
+
+      <!-- SIB22H Anti-Vandal Switch -->
+      <div class="product-card">
+        <div class="product-img">
+          <img id="img-sib22h" src="switch picture/anti vandal switch/SIB22H.jpg" alt="SIB22H" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <span class="product-tag" data-tr="ANTİ-VANDAL" data-en="ANTI-VANDAL">ANTİ-VANDAL</span>
+          <div class="product-name">SIB22H</div>
+          <div class="product-desc" data-tr="22mm yüksek akımlı (High Current) anti-vandal push button. Ağır endüstriyel koşullar için güçlendirilmiş temas kapasitesi. IP67 koruma, paslanmaz çelik gövde." data-en="22mm high current anti-vandal push button. Enhanced contact capacity for heavy industrial conditions. IP67 protection, stainless steel body.">
+            22mm yüksek akımlı (High Current) anti-vandal push button. Ağır endüstriyel koşullar için güçlendirilmiş temas kapasitesi. IP67 koruma, paslanmaz çelik gövde.
+          </div>
+        </div>
+      </div>
+
+      <!-- Chain Switch -->
+      <div class="product-card">
+        <div class="product-img">
+          <img src="switch picture/Chain switch.jpg" alt="Chain Switch" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <span class="product-tag" data-tr="ANAHTARLAR" data-en="SWITCHES">ANAHTARLAR</span>
+          <div class="product-name" data-tr="Zincir / Çekme Anahtar" data-en="Chain / Pull Switch">Zincir / Çekme Anahtar</div>
+          <div class="product-desc" data-tr="OJ-200 serisi. Zincir çekme mekanizmalı; armatür, fan ve lamba kontrolü için yaygın kullanım." data-en="OJ-200 series. Chain-pull mechanism; widely used for luminaire, fan and lamp control.">
+            OJ-200 serisi. Zincir çekme mekanizmalı; armatür, fan ve lamba kontrolü için yaygın kullanım.
+          </div>
+        </div>
+      </div>
+
+      <!-- Indicator -->
+      <div class="product-card">
+        <div class="product-img">
+          <img src="switch picture/indicator (1).jpg" alt="Indicator Light" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <span class="product-tag" data-tr="GÖSTERGE" data-en="INDICATOR">GÖSTERGE</span>
+          <div class="product-name" data-tr="Gösterge Lambası" data-en="Indicator Light">Gösterge Lambası</div>
+          <div class="product-desc" data-tr="Çeşitli renk ve gövde seçenekleri. Panel montajı için uygun; güç ve durum göstergesi olarak kullanılır." data-en="Various color and body options. Suitable for panel mounting; used as power and status indicators.">
+            Çeşitli renk ve gövde seçenekleri. Panel montajı için uygun; güç ve durum göstergesi olarak kullanılır.
+          </div>
+        </div>
+      </div>
+
+      <!-- Socket -->
+      <div class="product-card">
+        <div class="product-img">
+          <img src="switch picture/socket with switch.jpg" alt="Socket with Switch" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <span class="product-tag" data-tr="PRİZ" data-en="SOCKET">PRİZ</span>
+          <div class="product-name" data-tr="Priz ve Priz+Anahtar" data-en="Socket & Socket+Switch">Priz ve Priz+Anahtar</div>
+          <div class="product-desc" data-tr="Anahtarlı ve anahtarsız priz seçenekleri. Ev aletleri ve ticari ekipmanlar için güvenli güç bağlantısı." data-en="Socket options with and without switch. Safe power connection for home appliances and commercial equipment.">
+            Anahtarlı ve anahtarsız priz seçenekleri. Ev aletleri ve ticari ekipmanlar için güvenli güç bağlantısı.
+          </div>
+        </div>
+      </div>
+
+      <!-- Circuit Breaker -->
+      <div class="product-card">
+        <div class="product-img">
+          <img src="switch picture/SCB circuit breaker.jpg" alt="Circuit Breaker" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <span class="product-tag" data-tr="KORUMA" data-en="PROTECTION">KORUMA</span>
+          <div class="product-name" data-tr="Devre Kesici" data-en="Circuit Breaker">Devre Kesici</div>
+          <div class="product-desc" data-tr="SCB serisi aşırı yük koruma devre kesicisi. Elektrikli ekipmanları aşırı akımdan korumak için kullanılır." data-en="SCB series overload protection circuit breaker. Used to protect electrical equipment from overcurrent.">
+            SCB serisi aşırı yük koruma devre kesicisi. Elektrikli ekipmanları aşırı akımdan korumak için kullanılır.
+          </div>
+        </div>
+      </div>
+
+      <!-- Fuse Holder -->
+      <div class="product-card">
+        <div class="product-img">
+          <img src="switch picture/fuse holder.jpg" alt="Fuse Holder" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <span class="product-tag" data-tr="KORUMA" data-en="PROTECTION">KORUMA</span>
+          <div class="product-name" data-tr="Sigorta Yuvası" data-en="Fuse Holder">Sigorta Yuvası</div>
+          <div class="product-desc" data-tr="Kolay erişilebilir sigorta tutucu. Farklı sigorta boyutları için uyumlu; güvenli ve pratik bağlantı sağlar." data-en="Easily accessible fuse holder. Compatible with different fuse sizes; provides safe and practical connection.">
+            Kolay erişilebilir sigorta tutucu. Farklı sigorta boyutları için uyumlu; güvenli ve pratik bağlantı sağlar.
+          </div>
+        </div>
+      </div>
+
+      <!-- Toggle/Door Switch -->
+      <div class="product-card">
+        <div class="product-img">
+          <img src="switch picture/pull up chain switch.jpg" alt="Pull Switch" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <span class="product-tag" data-tr="ANAHTARLAR" data-en="SWITCHES">ANAHTARLAR</span>
+          <div class="product-name" data-tr="Toggle ve Kapı Anahtarı" data-en="Toggle & Door Switch">Toggle ve Kapı Anahtarı</div>
+          <div class="product-desc" data-tr="Buzdolabı ve ankastre ekipmanlar için kapı anahtarı ile klasik toggle anahtar seçenekleri." data-en="Door switch for refrigerators and built-in equipment, along with classic toggle switch options.">
+            Buzdolabı ve ankastre ekipmanlar için kapı anahtarı ile klasik toggle anahtar seçenekleri.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── CERTIFICATIONS ── -->
+<section id="certifications">
+  <div class="container">
+    <div class="section-header text-center">
+      <p class="label section-label" data-tr="SERTİFİKALAR" data-en="CERTIFICATIONS">SERTİFİKALAR</p>
+      <h2 class="headline-lg section-title" data-tr="Uluslararası Kalite Belgelerimiz" data-en="Our International Quality Certifications">Uluslararası Kalite Belgelerimiz</h2>
+      <p class="section-sub mx-auto" data-tr="Tüm ürünlerimiz uluslararası güvenlik ve kalite standartlarını karşılamaktadır." data-en="All our products meet international safety and quality standards.">
+        Tüm ürünlerimiz uluslararası güvenlik ve kalite standartlarını karşılamaktadır.
+      </p>
+    </div>
+    <div class="cert-grid">
+      <div class="cert-card" onclick="openLightbox('sertifikalar/IEC.jpg','IEC')">
+        <img src="sertifikalar/IEC.jpg" alt="IEC" />
+        <span class="cert-name">IEC</span>
+      </div>
+      <div class="cert-card" onclick="openLightbox('sertifikalar/IEC SYSTEM FOR MUTUAL RECOGNITION OF TEST CERTIFICATES FOR ELECTRICAL EQUIPMENT.jpg','IEC IECEE')">
+        <img src="sertifikalar/IEC SYSTEM FOR MUTUAL RECOGNITION OF TEST CERTIFICATES FOR ELECTRICAL EQUIPMENT.jpg" alt="IEC IECEE" />
+        <span class="cert-name">IEC IECEE</span>
+      </div>
+      <div class="cert-card" onclick="openLightbox('sertifikalar/cqc.jpg','CQC')">
+        <img src="sertifikalar/cqc.jpg" alt="CQC" />
+        <span class="cert-name">CQC</span>
+      </div>
+      <div class="cert-card" onclick="openLightbox('sertifikalar/intertek.jpg','Intertek')">
+        <img src="sertifikalar/intertek.jpg" alt="Intertek" />
+        <span class="cert-name">Intertek</span>
+      </div>
+      <div class="cert-card" onclick="openLightbox('sertifikalar/btcc-qms.jpg','BTCC QMS')">
+        <img src="sertifikalar/btcc-qms.jpg" alt="BTCC QMS" />
+        <span class="cert-name">BTCC QMS</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CATALOGS ── -->
+<section id="catalogs">
+  <div class="container">
+    <div class="section-header">
+      <p class="label section-label" data-tr="KATALOGLAR" data-en="CATALOGS">KATALOGLAR</p>
+      <h2 class="headline-lg section-title" data-tr="Ürün Kataloglarımız" data-en="Product Catalogs">Ürün Kataloglarımız</h2>
+      <p class="section-sub" data-tr="Teknik özellikler ve model bilgileri için kataloglarımızı indirebilirsiniz." data-en="Download our catalogs for technical specifications and model information.">
+        Teknik özellikler ve model bilgileri için kataloglarımızı indirebilirsiniz.
+      </p>
+    </div>
+    <div class="catalog-grid">
+
+      <a href="SIBER Products Version.pdf" target="_blank" class="catalog-card">
+        <div class="catalog-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+        </div>
+        <div class="catalog-title" data-tr="SIBER Ürün Kataloğu 2025" data-en="SIBER Product Catalog 2025">SIBER Ürün Kataloğu 2025</div>
+        <div class="catalog-size">23.59 MB · PDF</div>
+        <div class="catalog-dl">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+          <span data-tr="İndir" data-en="Download">İndir</span>
+        </div>
+      </a>
+
+
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <div class="container">
+    <div class="section-header">
+      <p class="label section-label" data-tr="İLETİŞİM" data-en="CONTACT">İLETİŞİM</p>
+      <h2 class="headline-lg section-title" data-tr="Bizimle İletişime Geçin" data-en="Get in Touch">Bizimle İletişime Geçin</h2>
+      <p class="section-sub" data-tr="Ürün soruları, teknik destek ve fiyat teklifi için formu doldurun." data-en="Fill out the form for product inquiries, technical support and price quotes.">
+        Ürün soruları, teknik destek ve fiyat teklifi için formu doldurun.
+      </p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info-block">
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <div>
+            <div class="contact-item-label" data-tr="ADRES" data-en="ADDRESS">ADRES</div>
+            <div class="contact-item-val">Osmangazi Mahallesi, Ova Sokak<br>No 1/A Efe İş Merkezi<br>Esenyurt / İstanbul</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </div>
+          <div>
+            <div class="contact-item-label" data-tr="E-POSTA" data-en="EMAIL">E-POSTA</div>
+            <div class="contact-item-val">info@tmtevaletleri.com</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          </div>
+          <div>
+            <div class="contact-item-label" data-tr="TELEFON" data-en="PHONE">TELEFON</div>
+            <div class="contact-item-val">+90 537 382 28 32</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div>
+            <div class="contact-item-label" data-tr="ÇALIŞMA SAATLERİ" data-en="WORKING HOURS">ÇALIŞMA SAATLERİ</div>
+            <div class="contact-item-val" data-tr="Pzt–Cum: 08:30 – 18:00" data-en="Mon–Fri: 08:30 – 18:00">Pzt–Cum: 08:30 – 18:00</div>
+          </div>
+        </div>
+      </div>
+
+      <form class="contact-form" onsubmit="handleForm(event)">
+        <div class="form-group">
+          <label data-tr="AD SOYAD" data-en="FULL NAME">AD SOYAD</label>
+          <input type="text" required placeholder="" />
+        </div>
+        <div class="form-group">
+          <label data-tr="FİRMA" data-en="COMPANY">FİRMA</label>
+          <input type="text" />
+        </div>
+        <div class="form-group">
+          <label data-tr="E-POSTA" data-en="EMAIL">E-POSTA</label>
+          <input type="email" required />
+        </div>
+        <div class="form-group">
+          <label data-tr="KONU" data-en="SUBJECT">KONU</label>
+          <select>
+            <option data-tr="Ürün Bilgisi" data-en="Product Information">Ürün Bilgisi</option>
+            <option data-tr="Fiyat Teklifi" data-en="Price Quote">Fiyat Teklifi</option>
+            <option data-tr="Teknik Destek" data-en="Technical Support">Teknik Destek</option>
+            <option data-tr="Katalog Talebi" data-en="Catalog Request">Katalog Talebi</option>
+            <option data-tr="Diğer" data-en="Other">Diğer</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label data-tr="MESAJ" data-en="MESSAGE">MESAJ</label>
+          <textarea required></textarea>
+        </div>
+        <button type="submit" class="btn-submit" data-tr="Gönder" data-en="Send">Gönder</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ── LIGHTBOX ── -->
+<div id="lightbox">
+  <button id="lightbox-close" onclick="closeLightbox()">&#x2715;</button>
+  <img id="lightbox-img" src="" alt="" />
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-brand-name">TMT Ev Aletleri</span>
+        <p data-tr="Ev aletleri ve endüstriyel ekipmanlar için kaliteli elektrik bileşenleri tedarikçisi." data-en="Quality electrical components supplier for home appliances and industrial equipment.">
+          Ev aletleri ve endüstriyel ekipmanlar için kaliteli elektrik bileşenleri tedarikçisi.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4 data-tr="Ürünler" data-en="Products">Ürünler</h4>
+        <ul>
+          <li><a href="#products" data-tr="Rocker Anahtar"       data-en="Rocker Switch">Rocker Anahtar</a></li>
+          <li><a href="#products" data-tr="Mikro Anahtar"        data-en="Micro Switch">Mikro Anahtar</a></li>
+          <li><a href="#products" data-tr="Sürgülü Anahtar"      data-en="Slide Switch">Sürgülü Anahtar</a></li>
+          <li><a href="#products" data-tr="Butonlu Anahtar"      data-en="Push Button">Butonlu Anahtar</a></li>
+          <li><a href="#products" data-tr="Döner Anahtar"        data-en="Rotary Switch">Döner Anahtar</a></li>
+          <li><a href="#products" data-tr="Gösterge Lambası"     data-en="Indicator Light">Gösterge Lambası</a></li>
+          <li><a href="#products" data-tr="Devre Kesici"         data-en="Circuit Breaker">Devre Kesici</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-tr="Şirket" data-en="Company">Şirket</h4>
+        <ul>
+          <li><a href="#about"          data-tr="Hakkımızda"    data-en="About Us">Hakkımızda</a></li>
+          <li><a href="#certifications" data-tr="Sertifikalar"  data-en="Certifications">Sertifikalar</a></li>
+          <li><a href="#catalogs"       data-tr="Kataloglar"    data-en="Catalogs">Kataloglar</a></li>
+          <li><a href="#contact"        data-tr="İletişim"      data-en="Contact">İletişim</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-tr="© 2026 TMT Ev Aletleri. Tüm hakları saklıdır." data-en="© 2026 TMT Ev Aletleri. All rights reserved.">© 2026 TMT Ev Aletleri. Tüm hakları saklıdır.</span>
+      <span data-tr="Esenyurt, İstanbul, Türkiye" data-en="Esenyurt, Istanbul, Turkey">Esenyurt, İstanbul, Türkiye</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* ── Language switcher ── */
+  let currentLang = 'tr';
+
+  function setLang(lang) {
+    currentLang = lang;
+    document.documentElement.lang = lang;
+    document.getElementById('btnTR').classList.toggle('active', lang === 'tr');
+    document.getElementById('btnEN').classList.toggle('active', lang === 'en');
+
+    document.querySelectorAll('[data-tr],[data-en]').forEach(el => {
+      const val = el.getAttribute('data-' + lang);
+      if (val !== null) el.innerHTML = val;
+    });
+
+    // Update select options
+    document.querySelectorAll('select option[data-tr]').forEach(opt => {
+      const val = opt.getAttribute('data-' + lang);
+      if (val) opt.textContent = val;
+    });
+    // Update filter buttons
+    document.querySelectorAll('.filter-btn[data-tr]').forEach(btn => {
+      const val = btn.getAttribute('data-' + lang);
+      if (val) btn.textContent = val;
+    });
+  }
+
+  /* ── Mobile nav ── */
+  document.getElementById('hamburger').addEventListener('click', () => {
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+  document.querySelectorAll('#navLinks a').forEach(a => {
+    a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
+  });
+
+  /* ── Form handler ── */
+  function handleForm(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.btn-submit');
+    const orig = btn.textContent;
+    btn.textContent = currentLang === 'tr' ? 'Gönderildi!' : 'Sent!';
+    btn.style.background = '#2a7a4b';
+    setTimeout(() => { btn.textContent = orig; btn.style.background = ''; e.target.reset(); }, 3000);
+  }
+
+  /* ── Product filter ── */
+  (function initFilter() {
+    const tagMap = [
+      [/ROCKER/i,                'rocker'],
+      [/M[İI]KRO|MICRO/i,       'mikro'],
+      [/SÜRGÜLÜ|SLIDE/i,        'surgu'],
+      [/BUTONLU|PUSH|BUTTON/i,  'buton'],
+      [/ANT[İI]-?VANDAL/i,      'antivandal'],
+    ];
+
+    // Auto-tag every card based on its product-tag text
+    document.querySelectorAll('.product-card').forEach(card => {
+      const tagEl = card.querySelector('.product-tag');
+      if (!tagEl) return;
+      const txt = tagEl.textContent.trim();
+      let cat = 'diger';
+      for (const [re, key] of tagMap) { if (re.test(txt)) { cat = key; break; } }
+      card.dataset.category = cat;
+    });
+
+    document.getElementById('filterBar').addEventListener('click', e => {
+      const btn = e.target.closest('.filter-btn');
+      if (!btn) return;
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.product-card').forEach(card => {
+        card.classList.toggle('hidden', filter !== 'all' && card.dataset.category !== filter);
+      });
+    });
+  })();
+
+  /* ── Product image gallery ── */
+  function switchThumb(thumb, mainId) {
+    document.getElementById(mainId).src = thumb.src;
+    const card = thumb.closest('.product-card');
+    card.querySelectorAll('.product-thumb').forEach(t => t.classList.remove('active'));
+    thumb.classList.add('active');
+    const nameEl = card.querySelector('.product-name');
+    if (nameEl && thumb.dataset.name) nameEl.textContent = thumb.dataset.name;
+  }
+
+  /* ── Lightbox ── */
+  function openLightbox(src, alt) {
+    const lb = document.getElementById('lightbox');
+    const img = document.getElementById('lightbox-img');
+    img.src = src; img.alt = alt;
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('lightbox').addEventListener('click', function(e) {
+    if (e.target === this) closeLightbox();
+  });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+  /* ── Smooth scroll offset for sticky nav ── */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href').slice(1);
+      const el = document.getElementById(id);
+      if (!el) return;
+      e.preventDefault();
+      const top = el.getBoundingClientRect().top + window.scrollY - 72;
+      window.scrollTo({ top, behavior: 'smooth' });
+    });
+  });
+</script>
+</body>
+</html>
