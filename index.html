@@ -244,6 +244,19 @@
     .product-thumb:hover { opacity: 1; }
     .product-thumb.active { border-color: var(--primary); opacity: 1; }
 
+    /* ── VIDEOS ── */
+    #videos { background: var(--bg); }
+    .videos-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(520px, 1fr)); gap: 24px; }
+    .video-card {
+      background: var(--surface); border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg); overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .video-card video { width: 100%; display: block; }
+    .video-card-info { padding: 16px 20px; border-top: 1px solid var(--border-light); }
+    .video-card-title { font-family: 'Manrope', sans-serif; font-weight: 600; font-size: 15px; color: var(--text); }
+    @media(max-width:640px){ .videos-grid { grid-template-columns: 1fr; } }
+
     /* ── CERTIFICATIONS ── */
     #certifications { background: var(--surface); }
     .cert-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; }
@@ -467,6 +480,7 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="#about"       data-tr="Hakkımızda"   data-en="About">Hakkımızda</a></li>
         <li><a href="#products"    data-tr="Ürünler"       data-en="Products">Ürünler</a></li>
+        <li><a href="#videos"         data-tr="Videolar"     data-en="Videos">Videolar</a></li>
         <li><a href="#certifications" data-tr="Sertifikalar" data-en="Certifications">Sertifikalar</a></li>
         <li><a href="#catalogs"    data-tr="Kataloglar"    data-en="Catalogs">Kataloglar</a></li>
         <li><a href="#contact"     data-tr="İletişim"      data-en="Contact">İletişim</a></li>
@@ -982,16 +996,20 @@
         </div>
       </div>
 
-      <!-- KBM Push Button -->
+      <!-- KBM / HC Push Button -->
       <div class="product-card">
         <div class="product-img">
           <img id="img-kbm" src="switch picture/push button switch/KBM.jpg" alt="KBM" loading="lazy" />
         </div>
+        <div class="product-thumbs">
+          <img class="product-thumb active" src="switch picture/push button switch/KBM.jpg" onclick="switchThumb(this,'img-kbm')" alt="KBM" data-name="KBM" />
+          <img class="product-thumb"        src="switch picture/push button switch/HC.jpg"  onclick="switchThumb(this,'img-kbm')" alt="HC"  data-name="HC" />
+        </div>
         <div class="product-info">
           <span class="product-tag" data-tr="BUTONLU ANAHTAR" data-en="PUSH BUTTON">BUTONLU ANAHTAR</span>
-          <div class="product-name">KBM</div>
-          <div class="product-desc" data-tr="Membran push button anahtar. Su ve toz geçirmez yapı (IP65). Mutfak aletleri, tıbbi cihazlar ve temiz oda ekipmanları için hijyenik kullanım." data-en="Membrane push button switch. Waterproof and dustproof structure (IP65). Hygienic use for kitchen appliances, medical devices and clean room equipment.">
-            Membran push button anahtar. Su ve toz geçirmez yapı (IP65). Mutfak aletleri, tıbbi cihazlar ve temiz oda ekipmanları için hijyenik kullanım.
+          <div class="product-name">KBM / HC</div>
+          <div class="product-desc" data-tr="KBM: Membran push button anahtar, IP65 su ve toz geçirmez yapı; mutfak aletleri ve tıbbi cihazlar için. HC: Kompakt push button anahtar; küçük ev aletleri ve elektronik ekipmanlarda kullanılır." data-en="KBM: Membrane push button switch, IP65 waterproof and dustproof; for kitchen appliances and medical devices. HC: Compact push button switch; used in small home appliances and electronic equipment.">
+            KBM: Membran push button anahtar, IP65 su ve toz geçirmez yapı; mutfak aletleri ve tıbbi cihazlar için. HC: Kompakt push button anahtar; küçük ev aletleri ve elektronik ekipmanlarda kullanılır.
           </div>
         </div>
       </div>
@@ -1033,19 +1051,6 @@
         </div>
       </div>
 
-      <!-- HC Push Button -->
-      <div class="product-card">
-        <div class="product-img">
-          <img id="img-hc" src="switch picture/push button switch/HC.jpg" alt="HC" loading="lazy" />
-        </div>
-        <div class="product-info">
-          <span class="product-tag" data-tr="BUTONLU ANAHTAR" data-en="PUSH BUTTON">BUTONLU ANAHTAR</span>
-          <div class="product-name">HC</div>
-          <div class="product-desc" data-tr="Kompakt push button anahtar. Küçük form faktörü ile sınırlı alanlara montaj; küçük ev aletleri ve elektronik ekipmanlarda kullanılır." data-en="Compact push button switch. Mounting in limited spaces with small form factor; used in small home appliances and electronic equipment.">
-            Kompakt push button anahtar. Küçük form faktörü ile sınırlı alanlara montaj; küçük ev aletleri ve elektronik ekipmanlarda kullanılır.
-          </div>
-        </div>
-      </div>
 
       <!-- Rotary Switch -->
       <div class="product-card">
@@ -1125,13 +1130,17 @@
       <!-- Chain Switch -->
       <div class="product-card">
         <div class="product-img">
-          <img src="switch picture/Chain switch.jpg" alt="Chain Switch" loading="lazy" />
+          <img id="img-chain" src="switch picture/Chain switch.jpg" alt="Chain Switch" loading="lazy" />
+        </div>
+        <div class="product-thumbs">
+          <img class="product-thumb active" src="switch picture/Chain switch.jpg"      onclick="switchThumb(this,'img-chain')" alt="Chain Switch" data-name="Zincir / Çekme Anahtar" />
+          <img class="product-thumb"        src="switch picture/pull up chain switch.jpg" onclick="switchThumb(this,'img-chain')" alt="Pull Switch"  data-name="Zincir / Çekme Anahtar" />
         </div>
         <div class="product-info">
           <span class="product-tag" data-tr="ANAHTARLAR" data-en="SWITCHES">ANAHTARLAR</span>
           <div class="product-name" data-tr="Zincir / Çekme Anahtar" data-en="Chain / Pull Switch">Zincir / Çekme Anahtar</div>
-          <div class="product-desc" data-tr="OJ-200 serisi. Zincir çekme mekanizmalı; armatür, fan ve lamba kontrolü için yaygın kullanım." data-en="OJ-200 series. Chain-pull mechanism; widely used for luminaire, fan and lamp control.">
-            OJ-200 serisi. Zincir çekme mekanizmalı; armatür, fan ve lamba kontrolü için yaygın kullanım.
+          <div class="product-desc" data-tr="OJ-200 serisi. Zincir çekme mekanizmalı; armatür, fan ve lamba kontrolü için yaygın kullanım. Buzdolabı ve ankastre ekipmanlar için kapı anahtarı ve toggle anahtar seçenekleri de mevcuttur." data-en="OJ-200 series. Chain-pull mechanism; widely used for luminaire, fan and lamp control. Door switch and toggle switch options also available for refrigerators and built-in equipment.">
+            OJ-200 serisi. Zincir çekme mekanizmalı; armatür, fan ve lamba kontrolü için yaygın kullanım. Buzdolabı ve ankastre ekipmanlar için kapı anahtarı ve toggle anahtar seçenekleri de mevcuttur.
           </div>
         </div>
       </div>
@@ -1192,20 +1201,30 @@
         </div>
       </div>
 
-      <!-- Toggle/Door Switch -->
-      <div class="product-card">
-        <div class="product-img">
-          <img src="switch picture/pull up chain switch.jpg" alt="Pull Switch" loading="lazy" />
-        </div>
-        <div class="product-info">
-          <span class="product-tag" data-tr="ANAHTARLAR" data-en="SWITCHES">ANAHTARLAR</span>
-          <div class="product-name" data-tr="Toggle ve Kapı Anahtarı" data-en="Toggle & Door Switch">Toggle ve Kapı Anahtarı</div>
-          <div class="product-desc" data-tr="Buzdolabı ve ankastre ekipmanlar için kapı anahtarı ile klasik toggle anahtar seçenekleri." data-en="Door switch for refrigerators and built-in equipment, along with classic toggle switch options.">
-            Buzdolabı ve ankastre ekipmanlar için kapı anahtarı ile klasik toggle anahtar seçenekleri.
-          </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── VIDEOS ── -->
+<section id="videos">
+  <div class="container">
+    <div class="section-header">
+      <p class="label section-label" data-tr="VİDEOLAR" data-en="VIDEOS">VİDEOLAR</p>
+      <h2 class="headline-lg section-title" data-tr="Ürün Videoları" data-en="Product Videos">Ürün Videoları</h2>
+      <p class="section-sub" data-tr="Ürünlerimizi yakından tanımak için videoları izleyebilirsiniz." data-en="Watch the videos to get to know our products up close.">
+        Ürünlerimizi yakından tanımak için videoları izleyebilirsiniz.
+      </p>
+    </div>
+    <div class="videos-grid">
+      <div class="video-card">
+        <video controls preload="metadata">
+          <source src="videolar/product-suplier.mp4" type="video/mp4" />
+        </video>
+        <div class="video-card-info">
+          <div class="video-card-title" data-tr="Ürün Tedarikçi Tanıtım" data-en="Product Supplier Introduction">Ürün Tedarikçi Tanıtım</div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -1221,25 +1240,17 @@
       </p>
     </div>
     <div class="cert-grid">
-      <div class="cert-card" onclick="openLightbox('sertifikalar/IEC.jpg','IEC')">
-        <img src="sertifikalar/IEC.jpg" alt="IEC" />
-        <span class="cert-name">IEC</span>
+      <div class="cert-card" onclick="openLightbox('sertifikalar/cqc.jpg','PSE')">
+        <img src="sertifikalar/cqc.jpg" alt="PSE" />
+        <span class="cert-name">PSE</span>
       </div>
-      <div class="cert-card" onclick="openLightbox('sertifikalar/IEC SYSTEM FOR MUTUAL RECOGNITION OF TEST CERTIFICATES FOR ELECTRICAL EQUIPMENT.jpg','IEC IECEE')">
-        <img src="sertifikalar/IEC SYSTEM FOR MUTUAL RECOGNITION OF TEST CERTIFICATES FOR ELECTRICAL EQUIPMENT.jpg" alt="IEC IECEE" />
-        <span class="cert-name">IEC IECEE</span>
+      <div class="cert-card" onclick="openLightbox('sertifikalar/intertek.jpg','ETL')">
+        <img src="sertifikalar/intertek.jpg" alt="ETL" />
+        <span class="cert-name">ETL</span>
       </div>
-      <div class="cert-card" onclick="openLightbox('sertifikalar/cqc.jpg','CQC')">
-        <img src="sertifikalar/cqc.jpg" alt="CQC" />
-        <span class="cert-name">CQC</span>
-      </div>
-      <div class="cert-card" onclick="openLightbox('sertifikalar/intertek.jpg','Intertek')">
-        <img src="sertifikalar/intertek.jpg" alt="Intertek" />
-        <span class="cert-name">Intertek</span>
-      </div>
-      <div class="cert-card" onclick="openLightbox('sertifikalar/btcc-qms.jpg','BTCC QMS')">
-        <img src="sertifikalar/btcc-qms.jpg" alt="BTCC QMS" />
-        <span class="cert-name">BTCC QMS</span>
+      <div class="cert-card" onclick="openLightbox('sertifikalar/ISO_page-0001.jpg','ISO')">
+        <img src="sertifikalar/ISO_page-0001.jpg" alt="ISO" />
+        <span class="cert-name">ISO</span>
       </div>
     </div>
   </div>
@@ -1389,6 +1400,7 @@
         <h4 data-tr="Şirket" data-en="Company">Şirket</h4>
         <ul>
           <li><a href="#about"          data-tr="Hakkımızda"    data-en="About Us">Hakkımızda</a></li>
+          <li><a href="#videos"          data-tr="Videolar"      data-en="Videos">Videolar</a></li>
           <li><a href="#certifications" data-tr="Sertifikalar"  data-en="Certifications">Sertifikalar</a></li>
           <li><a href="#catalogs"       data-tr="Kataloglar"    data-en="Catalogs">Kataloglar</a></li>
           <li><a href="#contact"        data-tr="İletişim"      data-en="Contact">İletişim</a></li>
