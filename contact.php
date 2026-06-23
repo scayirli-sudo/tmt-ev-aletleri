@@ -65,7 +65,6 @@ try {
     echo json_encode(['success' => true]);
 } catch (PHPMailerException $e) {
     http_response_code(500);
-    // DEBUG: gerçek hata mesajı geçici olarak loglanıyor, sorun çözülünce kaldırılacak.
     error_log('TMT contact form mail error: ' . $mail->ErrorInfo);
-    echo json_encode(['success' => false, 'message' => 'Mail gönderilemedi: ' . $mail->ErrorInfo]);
+    echo json_encode(['success' => false, 'message' => 'Mail gönderilemedi']);
 }
