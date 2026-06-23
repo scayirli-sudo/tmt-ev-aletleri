@@ -65,5 +65,6 @@ try {
     echo json_encode(['success' => true]);
 } catch (PHPMailerException $e) {
     http_response_code(500);
-    echo json_encode(['success' => false, 'message' => 'Mail gönderilemedi']);
+    // DEBUG: gerçek hata mesajı geçici olarak gösteriliyor, sorun çözülünce kaldırılacak.
+    echo json_encode(['success' => false, 'message' => 'Mail gönderilemedi: ' . $mail->ErrorInfo]);
 }
