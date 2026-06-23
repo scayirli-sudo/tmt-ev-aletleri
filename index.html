@@ -1489,6 +1489,7 @@
       btn.style.background = '#2a7a4b';
       form.reset();
     } catch (err) {
+      console.error('Form gönderim hatası:', err.message); // DEBUG: sorun çözülünce kaldırılacak
       btn.textContent = currentLang === 'tr' ? 'Hata, tekrar deneyin' : 'Error, try again';
       btn.style.background = '#b3261e';
     }
