@@ -1,6 +1,14 @@
 <?php
 header('Content-Type: application/json; charset=utf-8');
 
+require __DIR__ . '/mail-config.php';
+require __DIR__ . '/phpmailer/src/Exception.php';
+require __DIR__ . '/phpmailer/src/PHPMailer.php';
+require __DIR__ . '/phpmailer/src/SMTP.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception as PHPMailerException;
+
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
     echo json_encode(['success' => false, 'message' => 'Method not allowed']);
@@ -26,7 +34,7 @@ if ($name === '' || $email === '' || $message === '' || !filter_var($email, FILT
 }
 
 $to = 'info@tmtevaletleri.com';
-$mailSubject = '=?UTF-8?B?' . base64_encode('[TMT Web Form] ' . $subject) . '?=';
+$mailSubject = '[TMT Web Form] ' . $subject;
 
 $body  = "Ad Soyad: $name\n";
 $body .= 'Firma: ' . ($company !== '' ? $company : '-') . "\n";
@@ -34,19 +42,28 @@ $body .= "E-posta: $email\n";
 $body .= "Konu: $subject\n\n";
 $body .= "Mesaj:\n$message\n";
 
-// "From" adresi sunucunun kendi alan adıyla eşleşmeli, aksi halde host mail()
-// isteğini reddedebilir veya alıcıda spam'e düşebilir. Gerekirse aşağıdaki
-// alan adını barındırdığınız domain ile değiştirin.
-$headers   = [];
-$headers[] = 'From: TMT Web Form <noreply@tmtevaletleri.com>';
-$headers[] = 'Reply-To: ' . str_replace(["\r", "\n"], '', $email);
-$headers[] = 'Content-Type: text/plain; charset=UTF-8';
+$mail = new PHPMailer(true);
 
-$sent = mail($to, $mailSubject, $body, implode("\r\n", $headers));
+try {
+    $mail->isSMTP();
+    $mail->Host       = SMTP_HOST;
+    $mail->Port       = SMTP_PORT;
+    $mail->SMTPSecure = SMTP_SECURE;
+    $mail->SMTPAuth   = true;
+    $mail->Username   = SMTP_USER;
+    $mail->Password   = SMTP_PASS;
+    $mail->CharSet    = 'UTF-8';
 
-if ($sent) {
+    $mail->setFrom(SMTP_USER, 'TMT Web Form');
+    $mail->addAddress($to);
+    $mail->addReplyTo($email, $name);
+
+    $mail->Subject = $mailSubject;
+    $mail->Body    = $body;
+
+    $mail->send();
     echo json_encode(['success' => true]);
-} else {
+} catch (PHPMailerException $e) {
     http_response_code(500);
     echo json_encode(['success' => false, 'message' => 'Mail gönderilemedi']);
 }
